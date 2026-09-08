@@ -81,7 +81,8 @@ const sources = [
     value: 'kernquellen',
     title: 'Kernmodelle und Forschung',
     links: [
-      ['Polmodell von Barbara Geyer', 'https://www.linkedin.com/posts/barbara-geyer_welche-aufgabenstellungen-funktionieren-in-share-7500445921856360450-3lWX/'],
+      ['Backward Design · MIT Teaching + Learning Lab', 'https://tll.mit.edu/teaching-resources/course-design/backward-design/'],
+      ['Polmodell von Barbara Geyer', 'https://de.linkedin.com/posts/barbara-geyer_welche-aufgabenstellungen-funktionieren-in-activity-7500445923391574016-nTHQ'],
       ['ICAP Framework von Chi und Wylie', 'https://doi.org/10.1080/00461520.2014.965823'],
       ['AI Assessment Scale 2.1', 'https://aiassessmentscale.com/'],
       ['AIAS Implementation Guide', 'https://aiassessmentscale.com/implementation-guide/'],

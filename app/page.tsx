@@ -70,34 +70,34 @@ const fluencySkills = [
 
 export default function Home() {
   return (
-    <main>
-      <a className="skip-link" href="#aufgabencheck">Zum Inhalt springen</a>
+    <main id="top">
+      <a className="skip-link" href="#lernziel">Zum Inhalt springen</a>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Zurück zum Seitenanfang">
           <span className="brand-org">Digital Learning Hub Sek II</span>
           <span className="brand-divider" aria-hidden="true" />
-          <span>KI-Aufgaben-Werkbank</span>
+          <span>KI-angepasste Aufgaben gestalten</span>
         </a>
         <nav aria-label="Hauptnavigation">
+          <a href="#lernziel">Lernziel</a>
           <a href="#schnelltest">Schnelltest</a>
           <a href="#aufgabencheck">Aufgabencheck</a>
           <a href="#beispiele">Beispiele</a>
-          <a href="#werkstatt">Werkstatt</a>
           <a href="#quellen">Quellen</a>
         </nav>
       </header>
 
-      <section className="hero" id="top">
+      <section className="hero">
         <div className="hero-copy">
           <p className="eyebrow">Educafé · 24. September 2026</p>
-          <h1>Woran erkennen wir Lernen, wenn KI mitarbeitet?</h1>
+          <h1>KI hat gute Aufgaben nicht zerstört.</h1>
           <p className="hero-lead">
-            Bei einer guten Aufgabe wird sichtbar, was Lernende selbst verstehen,
-            prüfen und entscheiden – auch wenn KI am Produkt mitarbeitet.
+            Sie macht sichtbar, welche Aufgaben bisher vor allem fertige Produkte
+            statt Lernen und Denken gemessen haben.
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#aufgabencheck">
-              Aufgabe prüfen <ArrowDown aria-hidden="true" size={18} />
+            <a className="button button-primary" href="#lernziel">
+              Vom Lernziel her planen <ArrowDown aria-hidden="true" size={18} />
             </a>
             <a className="button button-secondary" href="#beispiele">
               Beispiele ansehen <ArrowRight aria-hidden="true" size={18} />
@@ -108,10 +108,57 @@ export default function Home() {
             Das begründete Urteil bleibt bei den Lernenden.
           </p>
         </div>
+      </section>
 
-        <aside className="diagnostic-card" id="schnelltest" aria-labelledby="schnelltest-title">
+      <section className="section learning-goal-section" id="lernziel" aria-labelledby="lernziel-title">
+        <div className="section-heading narrow-heading">
+          <p className="eyebrow">Der Ausgangspunkt</p>
+          <h2 id="lernziel-title">Vom Lernziel her planen</h2>
+          <p>
+            Nicht mit der Frage beginnen, ob KI erlaubt oder verboten ist. Zuerst
+            wird geklärt, was Lernende selbst verstehen, beurteilen und tun können
+            sollen. Erst danach folgen der passende Lernnachweis, die Lernaktivität
+            und die Rolle der KI.
+          </p>
+        </div>
+        <ol className="planning-path" aria-label="Drei Schritte des Backward Design">
+          <li>
+            <span>01</span>
+            <h3>Lernziel bestimmen</h3>
+            <p>Was sollen die Lernenden am Ende wissen, können und als bedeutsam erkennen?</p>
+          </li>
+          <li>
+            <span>02</span>
+            <h3>Lernnachweis festlegen</h3>
+            <p>Woran lässt sich erkennen, dass dieses Ziel tatsächlich erreicht wurde?</p>
+          </li>
+          <li>
+            <span>03</span>
+            <h3>Lernweg gestalten</h3>
+            <p>Welche Aktivitäten unterstützen das Lernen, und wo hilft oder stört KI dabei?</p>
+          </li>
+        </ol>
+        <p className="source-note">
+          Quelle: <a href="https://tll.mit.edu/teaching-resources/course-design/backward-design/" target="_blank" rel="noreferrer">MIT Teaching + Learning Lab: «Backward Design» nach Wiggins und McTighe</a>.
+        </p>
+      </section>
+
+      <section className="section diagnostic-section" id="schnelltest" aria-labelledby="schnelltest-section-title">
+        <div className="section-heading narrow-heading">
+          <p className="eyebrow">Danach diagnostizieren</p>
+          <h2 id="schnelltest-section-title">Zwei Fragen aus Barbara Geyers Polmodell</h2>
+          <p>
+            Wenn das Lernziel feststeht, zeigen zwei Fragen, ob das Aufgabenformat
+            individuelles Verstehen überhaupt sichtbar machen kann.
+          </p>
+          <p className="source-note">
+            Quelle: <a href="https://de.linkedin.com/posts/barbara-geyer_welche-aufgabenstellungen-funktionieren-in-activity-7500445923391574016-nTHQ" target="_blank" rel="noreferrer">Barbara Geyer: «Welche Aufgabenstellungen funktionieren in Zeiten von KI noch?»</a>
+          </p>
+        </div>
+
+        <aside className="diagnostic-card" aria-labelledby="schnelltest-title">
           <div className="card-kicker">Diagnose in 30 Sekunden</div>
-          <h2 id="schnelltest-title">Liegt die Aufgabe in der gefährlichen Mitte?</h2>
+          <h3 id="schnelltest-title">Liegt die Aufgabe in der gefährlichen Mitte?</h3>
           <ol>
             <li>
               <span>1</span>
@@ -129,31 +176,12 @@ export default function Home() {
         </aside>
       </section>
 
-      <section className="quick-check section" id="aufgabencheck" aria-labelledby="aufgabencheck-title">
-        <div className="section-heading">
-          <p className="eyebrow">Das Wichtigste auf einen Blick</p>
-          <h2 id="aufgabencheck-title">Fünf Fragen für den Aufgabencheck</h2>
-          <p>
-            Der Check beginnt beim Lernziel und endet bei der Frage, ob die Aufgabe
-            Verstehen von bloss überzeugendem Output unterscheiden kann.
-          </p>
-        </div>
-        <ol className="question-grid">
-          {quickQuestions.map((question, index) => (
-            <li key={question}>
-              <span>{index + 1}</span>
-              <p>{question}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
       <section className="section model-section" id="polmodell" aria-labelledby="polmodell-title">
         <div className="section-heading narrow-heading">
-          <p className="eyebrow">Erst diagnostizieren</p>
+          <p className="eyebrow">Das Polmodell</p>
           <h2 id="polmodell-title">Drei Zonen mit unterschiedlichem Aussagewert</h2>
           <p>
-            Das Polmodell fragt zuerst, was sich aus einem Lernprodukt tatsächlich
+            Barbara Geyers Polmodell fragt, was sich aus einem Lernprodukt tatsächlich
             über die Kompetenz einer einzelnen Person schliessen lässt.
           </p>
         </div>
@@ -179,6 +207,28 @@ export default function Home() {
           sehr nützlich sein. Es darf nur nicht allein als Nachweis selbst aufgebauter
           Kompetenz behandelt werden.
         </p>
+        <p className="source-note">
+          Quelle: <a href="https://de.linkedin.com/posts/barbara-geyer_welche-aufgabenstellungen-funktionieren-in-activity-7500445923391574016-nTHQ" target="_blank" rel="noreferrer">Barbara Geyer: Polmodell für Aufgabenstellungen in Zeiten von KI</a>.
+        </p>
+      </section>
+
+      <section className="quick-check section" id="aufgabencheck" aria-labelledby="aufgabencheck-title">
+        <div className="section-heading">
+          <p className="eyebrow">Vom Diagnosefilter zum Aufgabencheck</p>
+          <h2 id="aufgabencheck-title">Fünf Fragen für den Aufgabencheck</h2>
+          <p>
+            Der Check beginnt beim Lernziel und endet bei der Frage, ob die Aufgabe
+            Verstehen von bloss überzeugendem Output unterscheiden kann.
+          </p>
+        </div>
+        <ol className="question-grid">
+          {quickQuestions.map((question, index) => (
+            <li key={question}>
+              <span>{index + 1}</span>
+              <p>{question}</p>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className="section design-section" id="gestalten" aria-labelledby="gestalten-title">

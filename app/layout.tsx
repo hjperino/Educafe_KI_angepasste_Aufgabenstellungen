@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'KI-angepasste Aufgabenstellungen | Digital Learning Hub Sek II',
+  title: 'KI-angepasste Aufgaben gestalten | Digital Learning Hub Sek II',
   description:
-    'Eine Werkbank für Lernziele, klare KI-Rollen, sichtbare Lernspuren und begründete menschliche Urteile.',
+    'Vom Lernziel zu Aufgaben mit klaren KI-Rollen, sichtbaren Lernspuren und begründeten menschlichen Urteilen.',
 };
 
 export default function RootLayout({
