@@ -88,6 +88,7 @@ const sources = [
       ['AI Assessment Scale 2.1', 'https://aiassessmentscale.com/'],
       ['AIAS Implementation Guide', 'https://aiassessmentscale.com/implementation-guide/'],
       ['AI Fluency Framework', 'https://www.anthropic.com/ai-fluency/overview'],
+      ['AI Fluency for Educators · Anthropic', 'https://anthropic.skilljar.com/ai-fluency-for-educators'],
       ['AI Literacy Framework', 'https://ailiteracyframework.org/'],
     ],
   },
@@ -95,6 +96,8 @@ const sources = [
     value: 'praxis',
     title: 'Praxiswerkzeuge und Vertiefungen',
     links: [
+      ['KI-Stresstest vor dem Aufgabenumbau · Doan Winkel', 'https://www.linkedin.com/posts/doanwinkel_before-i-assign-anything-i-ask-ai-to-cheat-activity-7476295744560254976-My7P'],
+      ['Ausführlicher Prüf- und Umbauprompt · François Jourde', 'https://github.com/jourde/prompts/blob/main/docs/assessment-redesign/en.md'],
       ['KI-Aufgaben-Transformator', 'https://digitalespausenbrot.ch/ki-aufgaben-transformator/'],
       ['Planungsvorlage KI-Aufgabenkultur von Falck und Flick', 'https://joschafalck.de/ki-didaktik-planungsvorlage/'],
       ['Leitfaden Aufgabenkultur mit KI', 'https://joschafalck.de/leitfaden-aufgaben/'],

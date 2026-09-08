@@ -1,15 +1,11 @@
 import {
   ArrowDown,
   ArrowRight,
-  BrainCircuit,
   CheckCircle2,
   ClipboardCheck,
-  Compass,
-  Eye,
   MessageSquareText,
   Scale,
   ShieldCheck,
-  Sparkles,
   Waypoints,
 } from 'lucide-react';
 
@@ -19,38 +15,26 @@ import {
   SubjectIdeaAccordion,
 } from '@/components/content-accordions';
 
-const quickQuestions = [
-  'Was sollen Lernende selbst verstehen, beurteilen und tun können?',
-  'Welche kognitive Aktivität verlangt die Aufgabe?',
-  'Was darf oder soll die KI leisten?',
-  'Welches menschliche Urteil muss sichtbar werden – und in welchen Lernspuren?',
-  'Unterscheidet die Aufgabe Verstehen von überzeugendem Output und bleibt sie bezüglich Zugang, Aufwand und Beurteilung fair?',
-];
-
-const designLayers = [
+const taskCheckQuestions = [
   {
-    icon: Compass,
-    number: '01',
     title: 'Lernziel und Agency',
-    text: 'Was sollen die Lernenden nachher selbst verstehen, beurteilen und tun können?',
+    question: 'Was sollen Lernende selbst verstehen, beurteilen und tun können?',
   },
   {
-    icon: BrainCircuit,
-    number: '02',
     title: 'Kognitive Aktivität',
-    text: 'Bearbeiten die Lernenden Vorgegebenes, entwickeln sie selbst etwas Neues oder bauen sie gemeinsam Wissen auf?',
+    question: 'Welche kognitive Aktivität verlangt die Aufgabe?',
   },
   {
-    icon: Sparkles,
-    number: '03',
     title: 'Rolle der KI',
-    text: 'Plant, coacht, kritisiert, simuliert oder formuliert die KI – und wo endet ihre Rolle?',
+    question: 'Was darf oder soll die KI leisten?',
   },
   {
-    icon: Eye,
-    number: '04',
-    title: 'Menschliches Urteil',
-    text: 'Welche Prüfung, Entscheidung, Revision oder Begründung macht das Lernen sichtbar?',
+    title: 'Menschliches Urteil und Lernspuren',
+    question: 'Welches menschliche Urteil muss sichtbar werden – und in welchen Lernspuren?',
+  },
+  {
+    title: 'Validitätscheck',
+    question: 'Bewirkt die Aufgabe tatsächliches Verstehen oder produziert sie nur überzeugenden Output?',
   },
 ];
 
@@ -173,6 +157,24 @@ export default function Home() {
             <ShieldCheck aria-hidden="true" size={21} />
             Zweimal Nein? Dann braucht die Aufgabe sichtbarere menschliche Leistung.
           </p>
+          <a
+            className="diagnostic-figure"
+            href="./images/polmodell.jpeg"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Barbara Geyers Polmodell als grosse Grafik öffnen"
+          >
+            <img
+              src="./images/polmodell.jpeg"
+              alt="Barbara Geyers Polmodell mit Präsenzpol, gefährlicher Mitte, integriertem Pol und zwei Leitfragen zur Einordnung"
+              width="1800"
+              height="1238"
+            />
+            <span>
+              Polmodell als grosse Grafik öffnen
+              <ArrowRight aria-hidden="true" size={18} />
+            </span>
+          </a>
         </aside>
       </section>
 
@@ -214,62 +216,95 @@ export default function Home() {
 
       <section className="quick-check section" id="aufgabencheck" aria-labelledby="aufgabencheck-title">
         <div className="section-heading">
-          <p className="eyebrow">Vom Diagnosefilter zum Aufgabencheck</p>
-          <h2 id="aufgabencheck-title">Fünf Fragen für den Aufgabencheck</h2>
+          <p className="eyebrow">Aufgaben gestalten und prüfen</p>
+          <h2 id="aufgabencheck-title">Fünf Fragen: vier Gestaltungsebenen und ein abschliessender Check</h2>
           <p>
-            Der Check beginnt beim Lernziel und endet bei der Frage, ob die Aufgabe
-            Verstehen von bloss überzeugendem Output unterscheiden kann.
+            Die ersten vier Fragen gestalten die Arbeitsteilung zwischen Lernenden und
+            KI. Die fünfte prüft, ob daraus tatsächlich Verstehen entstehen kann.
           </p>
         </div>
-        <ol className="question-grid">
-          {quickQuestions.map((question, index) => (
-            <li key={question}>
-              <span>{index + 1}</span>
-              <p>{question}</p>
+        <ol className="question-grid" aria-label="Vier Gestaltungsebenen und ein Validitätscheck">
+          {taskCheckQuestions.map(({ title, question }, index) => (
+            <li className={index === 4 ? 'final-check' : undefined} key={title}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{title}</h3>
+                <p>{question}</p>
+              </div>
             </li>
           ))}
         </ol>
-      </section>
-
-      <section className="section design-section" id="gestalten" aria-labelledby="gestalten-title">
-        <div className="section-heading">
-          <p className="eyebrow">Dann gestalten</p>
-          <h2 id="gestalten-title">Vier Ebenen halten die Arbeitsteilung klar</h2>
-        </div>
-        <div className="layer-grid">
-          {designLayers.map(({ icon: Icon, number, title, text }) => (
-            <article className="layer-card" key={title}>
-              <div className="layer-topline">
-                <Icon aria-hidden="true" size={22} />
-                <span>{number}</span>
-              </div>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
+        <p className="check-source-note">
+          (Diese fünf Fragen enthalten Ideen und Erkenntnisse aus verschiedenen Quellen:
+          Lernziel und Agency / ICAP nach Chi und Wylie / AIAS 2.1 / «Lernspuren» /
+          B. Geyers Trennung von Verstehen und Vortäuschen.)
+        </p>
       </section>
 
       <section className="section redesign-section" id="umbauen" aria-labelledby="umbauen-title">
         <div className="section-heading narrow-heading">
           <p className="eyebrow">Kleine Eingriffe</p>
           <h2 id="umbauen-title">Drei Wege, eine Aufgabe umzubauen</h2>
+          <p>
+            Vor dem Umbau hilft ein kurzer KI-Stresstest: Wo ermöglicht die
+            Aufgabenstellung bereits überzeugenden Output ohne das beabsichtigte
+            Denken?
+          </p>
         </div>
+        <aside className="redesign-stress-test" aria-labelledby="stresstest-title">
+          <div>
+            <span>00 · Vor dem Umbau</span>
+            <h3 id="stresstest-title">Lass die KI zuerst «schummeln»</h3>
+          </div>
+          <div>
+            <p>
+              Gib der KI die bestehende Aufgabe und lass sie den bequemsten Weg zu
+              einem guten Resultat suchen. Danach soll sie benennen, welche Lücken
+              der Aufgabenstellung sie dabei ausgenutzt hat.
+            </p>
+            <blockquote>
+              «Erledige diese Aufgabe mit KI so, dass mit möglichst wenig eigener
+              Denkarbeit noch eine gute Bewertung erreichbar ist. Nenne danach genau
+              die Lücken der Aufgabenstellung, die dir das ermöglicht haben.»
+            </blockquote>
+            <p className="stress-test-caveat">
+              Der Test beweist nicht, dass eine überarbeitete Aufgabe «KI-sicher» ist.
+              Er zeigt, wo Begründung, Kontext oder sichtbarer Prozess fehlen.
+            </p>
+            <p className="stress-test-tool-copy">
+              <strong>Für die vertiefte Prüfung:</strong> François Jourdes ausführlicher
+              Prompt führt durch eine Schwachstellenanalyse, drei Umbauoptionen und die
+              Ausarbeitung der gewählten Variante.
+            </p>
+            <a
+              className="stress-test-link"
+              href="https://github.com/jourde/prompts/blob/main/docs/assessment-redesign/en.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ausführlichen Prüf-Prompt öffnen
+              <ArrowRight aria-hidden="true" size={18} />
+            </a>
+          </div>
+        </aside>
+        <p className="source-note">
+          Kurztest nach <a href="https://www.linkedin.com/posts/doanwinkel_before-i-assign-anything-i-ask-ai-to-cheat-activity-7476295744560254976-My7P" target="_blank" rel="noreferrer">Doan Winkel: «Before I assign anything, I ask AI to cheat on it»</a>. Ausführlicher Prüf- und Umbauprompt von <a href="https://github.com/jourde/prompts/blob/main/docs/assessment-redesign/en.md" target="_blank" rel="noreferrer">François Jourde</a>.
+        </p>
         <div className="redesign-grid">
           <article>
             <span>01</span>
             <h3>Ersetzen</h3>
-            <p>Eine leicht an KI delegierbare Teilaufgabe wird durch eine lernwirksamere ersetzt.</p>
+            <p>Austauschbare Standardteile werden durch eine fach-, unterrichts- oder ortsspezifische Leistung ersetzt, etwa ein reales lokales Beispiel.</p>
           </article>
           <article>
             <span>02</span>
             <h3>Ergänzen</h3>
-            <p>Das Produkt bleibt, erhält aber Vorarbeit, Quellenkontrolle, Änderungsbegründung oder Fachgespräch.</p>
+            <p>Das Produkt bleibt, verlangt aber zusätzlich Begründungen, Quellenkontrolle, Änderungsentscheidungen oder ein Fachgespräch.</p>
           </article>
           <article>
             <span>03</span>
             <h3>Etappieren</h3>
-            <p>Ein menschlicher Anfang, eine begrenzte KI-Phase und ein menschlicher Abschluss werden verbindlich.</p>
+            <p>Der Weg wird sichtbar: eigener Anfang, begrenzte KI-Phase, Prozessartefakt und menschlicher Abschluss werden verbindlich.</p>
           </article>
         </div>
       </section>
@@ -280,10 +315,14 @@ export default function Home() {
             <p className="eyebrow">Praxisbeispiele</p>
             <h2 id="beispiele-title">KI-Output wird zum Prüfmaterial</h2>
           </div>
-          <p>
-            Die Kurzfassungen bleiben sichtbar. Ausgangslage, Umbau und Lernnachweis
-            lassen sich bei Bedarf aufklappen.
-          </p>
+          <aside className="interaction-note" aria-label="Bedienhinweis">
+            <strong>Bedienhinweis</strong>
+            <p>
+              «Schreiben im Sandwich-Modus», «Wortschatzgeschichte als Prüfmaterial»
+              und «Literaturarbeit zu The Great Gatsby» lassen sich für weitere
+              Details aufklappen (+).
+            </p>
+          </aside>
         </div>
         <CoreExampleAccordion />
 
@@ -295,6 +334,12 @@ export default function Home() {
               Diese Entwürfe sind bewusst fachoffen gehalten. Die konkreten Quellen,
               Kriterien und fachlichen Sicherungen ergänzt die jeweilige Lehrperson.
             </p>
+            <aside className="interaction-note" aria-label="Bedienhinweis">
+              <strong>Bedienhinweis</strong>
+              <p>
+                Die fünf Fachvorschläge lassen sich für weitere Details aufklappen (+).
+              </p>
+            </aside>
           </div>
           <SubjectIdeaAccordion />
         </div>
@@ -324,6 +369,10 @@ export default function Home() {
             KI-Kompetenz zeigt sich nicht allein an einem geschickten Prompt. Entscheidend
             bleibt, was Lernende selbst verstehen, prüfen und verantworten können.
           </p>
+          <p className="source-note">
+            4D-Framework von Rick Dakan und Joseph Feller in Zusammenarbeit mit
+            Anthropic. Vertiefung: <a href="https://anthropic.skilljar.com/ai-fluency-for-educators" target="_blank" rel="noreferrer">AI Fluency for Educators</a>.
+          </p>
         </div>
         <ol className="fluency-list">
           {fluencySkills.map(([title, text], index) => (
@@ -343,33 +392,37 @@ export default function Home() {
           <p className="eyebrow">Aufgabenwerkstatt</p>
           <h2 id="werkstatt-title">Eine schwache Aufgabe gemeinsam umbauen</h2>
           <blockquote>
-            «Verfasse eine Zusammenfassung zu einem Unterrichtsthema und gib den fertigen Text ab.»
+            «Erkläre die Photosynthese.»
           </blockquote>
           <p>
-            Diese Aufgabe verlangt ein plausibles Produkt, macht den Weg dorthin aber kaum
-            sichtbar. Drei Entscheidungen reichen für einen ersten Umbau.
+            Eine KI liefert dazu in wenigen Sekunden eine fachsprachlich überzeugende
+            Standardantwort. Am fertigen Text ist kaum erkennbar, ob die Lernenden die
+            Stoff- und Energieumwandlung tatsächlich verstanden haben.
           </p>
         </div>
         <ol className="workshop-steps">
           <li>
             <ClipboardCheck aria-hidden="true" size={22} />
-            <div><strong>Lernziel klären</strong><span>Was müssen die Lernenden selbst verstehen?</span></div>
+            <div><strong>Lernziel schärfen</strong><span>Welche Zusammenhänge der Photosynthese sollen die Lernenden selbst erklären können?</span></div>
           </li>
           <li>
             <Waypoints aria-hidden="true" size={22} />
-            <div><strong>KI-Rolle begrenzen</strong><span>Welche Hilfe ist nützlich, ohne das Denken zu übernehmen?</span></div>
+            <div><strong>Zwischenschritt einbauen</strong><span>Was skizzieren oder prognostizieren sie, bevor sie die KI befragen?</span></div>
           </li>
           <li>
             <MessageSquareText aria-hidden="true" size={22} />
-            <div><strong>Urteil sichtbar machen</strong><span>Welche Änderung oder Begründung zeigt das Verständnis?</span></div>
+            <div><strong>Prüfung und Transfer ergänzen</strong><span>Welche Prüfung, Überarbeitung oder neue Situation macht ihr Verständnis sichtbar?</span></div>
           </li>
         </ol>
         <div className="workshop-result">
           <CheckCircle2 aria-hidden="true" size={24} />
           <p>
-            <strong>Mögliche Neufassung:</strong> Zuerst drei Kernaussagen selbst festhalten.
-            Dann eine KI-Zusammenfassung an diesen Aussagen und am Unterrichtsmaterial prüfen.
-            Zwei Änderungen vornehmen und begründen. Zum Schluss eine neue Aussage ohne KI erklären.
+            <strong>Mögliche Neufassung:</strong> Vor der KI zeichnen die Lernenden ein
+            Prozessmodell und kennzeichnen Stoff- und Energieumwandlung. Dann vergleichen
+            sie eine KI-Erklärung mit ihrem Modell und dem Unterrichtsmaterial, markieren
+            Übereinstimmungen und Unterschiede und überarbeiten ihr Modell begründet. Zum
+            Schluss beantworten sie ohne KI eine Transferfrage: «Was verändert sich, wenn
+            Licht oder CO₂ knapp wird?»
           </p>
         </div>
         <a className="button workshop-link" href="https://digitalespausenbrot.ch/ki-aufgaben-transformator/" target="_blank" rel="noreferrer">
@@ -383,10 +436,14 @@ export default function Home() {
             <p className="eyebrow">Quellen und Vertiefungen</p>
             <h2 id="quellen-title">Modelle, Praxiswerkzeuge und Kontext</h2>
           </div>
-          <p>
-            Alle Kerninhalte bleiben auf dieser Seite verständlich. Die externen Links
-            führen zu Originalquellen und weiterführenden Werkzeugen.
-          </p>
+          <aside className="interaction-note" aria-label="Bedienhinweis">
+            <strong>Bedienhinweis</strong>
+            <p>
+              Alle Inhalte auf dieser Seite bleiben auch nach der Präsentation erhalten
+              und sind offen zugänglich. Die externen Links führen zu Originalquellen
+              und weiterführenden Werkzeugen.
+            </p>
+          </aside>
         </div>
         <SourceAccordion />
       </section>

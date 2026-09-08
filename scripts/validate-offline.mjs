@@ -40,7 +40,7 @@ if (detailsCount !== 11) {
 }
 
 for (const phrase of [
-  'Fünf Fragen für den Aufgabencheck',
+  'Fünf Fragen: vier Gestaltungsebenen und ein abschliessender Check',
   'Gefährliche Mitte',
   'Geschichte und Politik',
   'Mathematik',
