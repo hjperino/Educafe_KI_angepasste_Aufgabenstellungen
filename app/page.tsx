@@ -152,7 +152,7 @@ export default function Home() {
             individuelles Verstehen überhaupt sichtbar machen kann.
           </p>
           <p className="source-note">
-            Quelle: <a href="https://de.linkedin.com/posts/barbara-geyer_welche-aufgabenstellungen-funktionieren-in-activity-7500445923391574016-nTHQ" target="_blank" rel="noreferrer">Barbara Geyer: «Welche Aufgabenstellungen funktionieren in Zeiten von KI noch?»</a>
+            Quellen: <a href="https://barbarageyer.substack.com/p/das-polmodell" target="_blank" rel="noreferrer">Barbara Geyer: «Das Polmodell» (Substack)</a> und <a href="https://de.linkedin.com/posts/barbara-geyer_welche-aufgabenstellungen-funktionieren-in-activity-7500445923391574016-nTHQ" target="_blank" rel="noreferrer">«Welche Aufgabenstellungen funktionieren in Zeiten von KI noch?» (LinkedIn)</a>.
           </p>
         </div>
 
@@ -208,7 +208,7 @@ export default function Home() {
           Kompetenz behandelt werden.
         </p>
         <p className="source-note">
-          Quelle: <a href="https://de.linkedin.com/posts/barbara-geyer_welche-aufgabenstellungen-funktionieren-in-activity-7500445923391574016-nTHQ" target="_blank" rel="noreferrer">Barbara Geyer: Polmodell für Aufgabenstellungen in Zeiten von KI</a>.
+          Quellen: <a href="https://barbarageyer.substack.com/p/das-polmodell" target="_blank" rel="noreferrer">Barbara Geyer: «Das Polmodell» (Substack)</a> und <a href="https://de.linkedin.com/posts/barbara-geyer_welche-aufgabenstellungen-funktionieren-in-activity-7500445923391574016-nTHQ" target="_blank" rel="noreferrer">der ergänzende LinkedIn-Beitrag</a>.
         </p>
       </section>
 
