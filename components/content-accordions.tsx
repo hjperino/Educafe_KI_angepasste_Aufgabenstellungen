@@ -1,0 +1,188 @@
+import { ExternalLink } from 'lucide-react';
+
+const coreExamples = [
+  {
+    value: 'sandwich',
+    title: 'Schreiben im Sandwich-Modus',
+    meta: 'Sprachen · KI als Feedbackpartnerin',
+    before: 'Ein fertiger Text wird abgegeben; die Entwicklung bleibt unsichtbar.',
+    after:
+      'Die Lernenden schreiben zuerst selbst. Danach erhalten sie sprachliches und strukturelles KI-Feedback, prüfen die Hinweise und überarbeiten gezielt.',
+    trace:
+      'Ausgangstext, ausgewählte Feedbackhinweise, überarbeitete Fassung und eine kurze Begründung der wichtigsten Entscheidungen.',
+  },
+  {
+    value: 'wortschatz',
+    title: 'Wortschatzgeschichte als Prüfmaterial',
+    meta: 'Französisch · KI erzeugt ein prüfbares Artefakt',
+    before: 'Eine KI-Geschichte wird als anschauliches Übungsmaterial konsumiert.',
+    after:
+      'Die Lernenden prüfen die Verwendung vorgegebener Ausdrücke, klären mehrdeutige Stellen, verbessern problematische Sätze und entwickeln eigene Varianten.',
+    trace:
+      'Markierungen im KI-Text, begründete Korrekturen und die sprachlichen Entscheidungen der Gruppe.',
+  },
+  {
+    value: 'gatsby',
+    title: 'Literaturarbeit zu The Great Gatsby',
+    meta: 'Literatur · KI als zusätzliche Lesart',
+    before: 'Eine Figurenanalyse oder Interpretation wird nur als Endprodukt beurteilt.',
+    after:
+      'Eigene Beobachtungen entstehen vor der KI-Nutzung. Anschliessend vergleichen die Lernenden sie mit einer KI-Zusammenfassung oder einer simulierten Figurenstimme.',
+    trace:
+      'Textbelege, angenommene oder verworfene KI-Ideen und ein eigenes literarisches Urteil. Die Simulation wird als Modellkonstruktion gekennzeichnet.',
+  },
+];
+
+const subjectIdeas = [
+  {
+    value: 'geschichte',
+    title: 'Geschichte und Politik',
+    task:
+      'Zwei KI-Darstellungen eines historischen Ereignisses oder politischen Konflikts mit einer im Unterricht behandelten Quelle vergleichen.',
+    judgment:
+      'Die Lernenden markieren Behauptungen, Perspektiven und Auslassungen und formulieren ein quellenbasiertes Urteil.',
+  },
+  {
+    value: 'mathematik',
+    title: 'Mathematik',
+    task:
+      'Zuerst einen eigenen Lösungsansatz skizzieren, danach mit einer KI-Lösung vergleichen und die erste Abweichung untersuchen.',
+    judgment:
+      'Die Lernenden prüfen rechnerisch oder grafisch, welcher Schritt trägt, erklären den Fehler und lösen anschliessend eine kurze Transferaufgabe ohne KI.',
+  },
+  {
+    value: 'naturwissenschaften',
+    title: 'Naturwissenschaften',
+    task:
+      'Vor einem Versuch eine eigene Prognose festhalten. Nach der Messung schlägt die KI eine Interpretation der Daten vor.',
+    judgment:
+      'Die Lernenden vergleichen Prognose, Messwerte und KI-Deutung, benennen Unsicherheiten und begründen ihre Schlussfolgerung.',
+  },
+  {
+    value: 'wirtschaft',
+    title: 'Berufskunde und Wirtschaft',
+    task:
+      'Einen realistischen Kundenauftrag mit Zielgruppe, Budget und lokalen Bedingungen bearbeiten. Die KI liefert mehrere Lösungsvorschläge.',
+    judgment:
+      'Die Lernenden legen Kriterien fest, wählen oder verändern einen Vorschlag und verteidigen ihre Entscheidung in einem kurzen Gespräch.',
+  },
+  {
+    value: 'gestaltung',
+    title: 'Gestalten und Kunst',
+    task:
+      'Eine menschlich entwickelte, eine KI-generierte und eine gemeinsam entwickelte Fassung gegenüberstellen.',
+    judgment:
+      'Die Lernenden erläutern Absicht, gestalterische Entscheidungen, Urheberschaft und ethische Grenzen und begründen ihre bevorzugte Fassung.',
+  },
+];
+
+const sources = [
+  {
+    value: 'kernquellen',
+    title: 'Kernmodelle und Forschung',
+    links: [
+      ['Polmodell von Barbara Geyer', 'https://www.linkedin.com/posts/barbara-geyer_welche-aufgabenstellungen-funktionieren-in-share-7500445921856360450-3lWX/'],
+      ['ICAP Framework von Chi und Wylie', 'https://doi.org/10.1080/00461520.2014.965823'],
+      ['AI Assessment Scale 2.1', 'https://aiassessmentscale.com/'],
+      ['AIAS Implementation Guide', 'https://aiassessmentscale.com/implementation-guide/'],
+      ['AI Fluency Framework', 'https://www.anthropic.com/ai-fluency/overview'],
+      ['AI Literacy Framework', 'https://ailiteracyframework.org/'],
+    ],
+  },
+  {
+    value: 'praxis',
+    title: 'Praxiswerkzeuge und Vertiefungen',
+    links: [
+      ['KI-Aufgaben-Transformator', 'https://digitalespausenbrot.ch/ki-aufgaben-transformator/'],
+      ['Planungsvorlage KI-Aufgabenkultur von Falck und Flick', 'https://joschafalck.de/ki-didaktik-planungsvorlage/'],
+      ['Leitfaden Aufgabenkultur mit KI', 'https://joschafalck.de/leitfaden-aufgaben/'],
+      ['Entscheidungsbaum KI und Hausaufgaben', 'https://view.genially.com/69fb3374dbd17c55f9d937de'],
+    ],
+  },
+  {
+    value: 'kontext',
+    title: 'Schweizer Kontext und Veranstaltung',
+    links: [
+      ['Künstliche Intelligenz in der Volksschule · Kanton Zürich', 'https://www.zh.ch/de/bildung/informationen-fuer-schulen/informationen-volksschule/volksschule-schulinfo-unterricht/kuenstliche-intelligenz.html'],
+      ['Educafé September · Edubase', 'https://www.edubase.ch/edubase/events/event/educafe-september'],
+      ['Kurse und Workshops des Digital Learning Hub Sek II', 'https://dlh.zh.ch/home/impuls-workshops'],
+    ],
+  },
+];
+
+function LinkList({ links }: { links: string[][] }) {
+  return (
+    <ul className="source-links">
+      {links.map(([label, href]) => (
+        <li key={href}>
+          <a href={href} target="_blank" rel="noreferrer">
+            {label}
+            <ExternalLink aria-hidden="true" size={16} />
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export function CoreExampleAccordion() {
+  return (
+    <div className="content-accordion">
+      {coreExamples.map((example, index) => (
+        <details key={example.value} className="accordion-item" open={index === 0}>
+          <summary className="accordion-trigger">
+            <span>
+              <strong>{example.title}</strong>
+              <small>{example.meta}</small>
+            </span>
+          </summary>
+          <div className="accordion-content">
+            <div className="example-detail-grid">
+              <div>
+                <h4>Ausgangslage</h4>
+                <p>{example.before}</p>
+              </div>
+              <div>
+                <h4>Umbau</h4>
+                <p>{example.after}</p>
+              </div>
+              <div>
+                <h4>Sichtbarer Lernnachweis</h4>
+                <p>{example.trace}</p>
+              </div>
+            </div>
+          </div>
+        </details>
+      ))}
+    </div>
+  );
+}
+
+export function SubjectIdeaAccordion() {
+  return (
+    <div className="content-accordion compact-accordion">
+      {subjectIdeas.map((idea) => (
+        <details key={idea.value} className="accordion-item">
+          <summary className="accordion-trigger"><strong>{idea.title}</strong></summary>
+          <div className="accordion-content">
+            <p><strong>Aufgabe:</strong> {idea.task}</p>
+            <p><strong>Menschliches Urteil:</strong> {idea.judgment}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  );
+}
+
+export function SourceAccordion() {
+  return (
+    <div className="content-accordion source-accordion">
+      {sources.map((group, index) => (
+        <details key={group.value} className="accordion-item" open={index === 0}>
+          <summary className="accordion-trigger"><strong>{group.title}</strong></summary>
+          <div className="accordion-content"><LinkList links={group.links} /></div>
+        </details>
+      ))}
+    </div>
+  );
+}
