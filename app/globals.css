@@ -113,8 +113,16 @@ h4 { margin-bottom: 0.35rem; font-size: 1rem; letter-spacing: 0.075em; line-heig
   letter-spacing: 0.012em;
   text-decoration: none;
 }
-.brand-org { color: var(--petrol); }
-.brand-divider { width: 1px; height: 1.8rem; background: var(--line); }
+.brand-org-link {
+  flex: 0 0 auto;
+  color: var(--petrol);
+  font-weight: 700;
+  letter-spacing: 0.012em;
+  line-height: 1.35;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.32rem;
+  white-space: nowrap;
+}
 .site-header nav,
 footer nav { display: flex; gap: clamp(0.8rem, 2.1vw, 1.65rem); }
 .site-header nav a,
@@ -129,6 +137,8 @@ footer nav a {
 }
 .site-header nav a:hover,
 .site-header nav a:focus-visible,
+.brand-org-link:hover,
+.brand-org-link:focus-visible,
 footer nav a:hover,
 footer nav a:focus-visible {
   color: var(--orange);
@@ -762,7 +772,9 @@ footer nav { align-items: center; }
   html { scroll-padding-top: 9rem; }
   section[id] { scroll-margin-top: 9rem; }
   .site-header { flex-wrap: wrap; gap: 0.45rem; padding-block: 0.55rem; }
-  .site-header nav { width: 100%; overflow-x: auto; padding-bottom: 0.15rem; }
+  .brand { order: 1; }
+  .brand-org-link { order: 2; margin-left: auto; }
+  .site-header nav { order: 3; width: 100%; overflow-x: auto; padding-bottom: 0.15rem; }
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .diagnostic-card { max-width: 660px; }
   .split-heading, .subject-ideas, .diagnostic-section, .planning-path, .redesign-stress-test { grid-template-columns: 1fr; }
@@ -779,8 +791,8 @@ footer nav { align-items: center; }
 }
 
 @media (max-width: 560px) {
-  .brand-org, .brand-divider { display: none; }
-  .brand > span:last-child { font-size: 1.05rem; }
+  .brand { font-size: 1.05rem; }
+  .brand-org-link { width: 100%; font-size: 0.95rem; text-align: right; }
   .site-header nav a { font-size: 1rem; }
   .hero h1 { font-size: clamp(2.85rem, 15vw, 4.2rem); }
   .button { width: 100%; }

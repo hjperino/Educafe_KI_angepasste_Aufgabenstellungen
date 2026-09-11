@@ -61,14 +61,23 @@
       }
       .brand {
         display: flex;
+        flex: 0 0 auto;
         gap: 0.75rem;
         align-items: center;
         font-size: 1.05rem;
         font-weight: 700;
         text-decoration: none;
       }
-      .brand-org { color: var(--petrol); }
-      .brand-divider { width: 1px; height: 1.35rem; background: var(--line); }
+      .brand-org-link {
+        flex: 0 0 auto;
+        color: var(--petrol);
+        font-size: 1rem;
+        font-weight: 700;
+        text-decoration-color: transparent;
+        text-underline-offset: 0.25rem;
+        white-space: nowrap;
+      }
+      .brand-org-link:hover, .brand-org-link:focus-visible { color: var(--orange); text-decoration-color: currentColor; }
       .site-header nav a, .back-link {
         display: inline-flex;
         gap: 0.45rem;
@@ -164,22 +173,26 @@
       footer nav { display: flex; align-items: center; }
       @media (max-width: 820px) {
         .site-header { flex-wrap: wrap; gap: 0.45rem; }
-        .brand-org, .brand-divider { display: none; }
+        .brand { order: 1; }
+        .brand-org-link { order: 2; margin-left: auto; }
+        .site-header nav { order: 3; width: 100%; }
         .link-grid { grid-template-columns: 1fr; }
         footer { flex-direction: column; }
+      }
+      @media (max-width: 560px) {
+        .brand-org-link { width: 100%; text-align: right; }
       }
     </style>
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="../index.html#beispiele" aria-label="Zurück zu den Praxisbeispielen">
-        <span class="brand-org">Digital Learning Hub Sek II</span>
-        <span class="brand-divider" aria-hidden="true"></span>
         <span>KI-angepasste Aufgaben gestalten</span>
       </a>
       <nav aria-label="Seitennavigation">
         <a href="../index.html#beispiele"><span aria-hidden="true">←</span> Praxisbeispiele</a>
       </nav>
+      <a class="brand-org-link" href="https://dlh.zh.ch/" target="_blank" rel="noreferrer">Digital Learning Hub Sek II</a>
     </header>
 
     <main>

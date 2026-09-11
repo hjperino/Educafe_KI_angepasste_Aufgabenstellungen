@@ -85,8 +85,6 @@ export default function Home() {
       <a className="skip-link" href="#lernziel">Zum Inhalt springen</a>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Zurück zum Seitenanfang">
-          <span className="brand-org">Digital Learning Hub Sek II</span>
-          <span className="brand-divider" aria-hidden="true" />
           <span>KI-angepasste Aufgaben gestalten</span>
         </a>
         <nav aria-label="Hauptnavigation">
@@ -96,6 +94,14 @@ export default function Home() {
           <a href="#beispiele">Beispiele</a>
           <a href="#quellen">Quellen</a>
         </nav>
+        <a
+          className="brand-org-link"
+          href="https://dlh.zh.ch/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Digital Learning Hub Sek II
+        </a>
       </header>
 
       <section className="hero">
