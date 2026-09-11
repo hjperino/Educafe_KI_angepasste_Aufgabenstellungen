@@ -8,8 +8,20 @@ const coreExamples = [
     before: 'Ein fertiger Text wird abgegeben; die Entwicklung bleibt unsichtbar.',
     after:
       'Die Lernenden schreiben zuerst selbst. Danach erhalten sie sprachliches und strukturelles KI-Feedback, prüfen die Hinweise und überarbeiten gezielt.',
+    tools: [
+      {
+        label: 'GPT-Bot',
+        href: 'https://chatgpt.com/g/g-6867942b8e5c8191bab5ea3857148b1a-cefr-writing-feedback-buddy-swiss-sek-i-and-ii',
+      },
+      {
+        label: 'Fobizz-Assistent',
+        href: 'https://app.fobizz.com/ai/chats/public_assistants/c16e38ef-1743-4212-b6a8-accb632f5347?token=1f2f69dab5dc55e728bcd5f59c19ffd3',
+      },
+    ],
+    toolsLabel: 'Benutze z. B.',
     trace:
       'Ausgangstext, ausgewählte Feedbackhinweise, überarbeitete Fassung und eine kurze Begründung der wichtigsten Entscheidungen.',
+    resource: null,
   },
   {
     value: 'wortschatz',
@@ -18,8 +30,14 @@ const coreExamples = [
     before: 'Eine KI-Geschichte wird als anschauliches Übungsmaterial konsumiert.',
     after:
       'Die Lernenden prüfen die Verwendung vorgegebener Ausdrücke, klären mehrdeutige Stellen, verbessern problematische Sätze und entwickeln eigene Varianten.',
+    tools: null,
+    toolsLabel: null,
     trace:
       'Markierungen im KI-Text, begründete Korrekturen und die sprachlichen Entscheidungen der Gruppe.',
+    resource: {
+      label: 'Beispiel Chatverlauf und «Extra»: Geschichte zu Video',
+      href: './beispiel-wortschatzgeschichte/index.html',
+    },
   },
   {
     value: 'gatsby',
@@ -28,8 +46,20 @@ const coreExamples = [
     before: 'Eine Figurenanalyse oder Interpretation wird nur als Endprodukt beurteilt.',
     after:
       'Eigene Beobachtungen entstehen vor der KI-Nutzung. Anschliessend vergleichen die Lernenden sie mit einer KI-Zusammenfassung oder einer simulierten Figurenstimme.',
+    tools: [
+      {
+        label: 'Beispiel Chat 1',
+        href: 'https://chatgpt.com/c/fc15bec7-8234-4e06-a87c-85572bfd61b9',
+      },
+      {
+        label: 'Beispiel Chat 2',
+        href: 'https://chatgpt.com/c/2f6758e7-fcdc-48e0-bee6-750fed50775a',
+      },
+    ],
+    toolsLabel: null,
     trace:
       'Textbelege, angenommene oder verworfene KI-Ideen und ein eigenes literarisches Urteil. Die Simulation wird als Modellkonstruktion gekennzeichnet.',
+    resource: null,
   },
 ];
 
@@ -87,7 +117,6 @@ const sources = [
       ['ICAP Framework von Chi und Wylie', 'https://doi.org/10.1080/00461520.2014.965823'],
       ['AI Assessment Scale 2.1', 'https://aiassessmentscale.com/'],
       ['AIAS Implementation Guide', 'https://aiassessmentscale.com/implementation-guide/'],
-      ['AI Fluency Framework', 'https://www.anthropic.com/ai-fluency/overview'],
       ['AI Fluency for Educators · Anthropic', 'https://anthropic.skilljar.com/ai-fluency-for-educators'],
       ['AI Literacy Framework', 'https://ailiteracyframework.org/'],
     ],
@@ -97,10 +126,9 @@ const sources = [
     title: 'Praxiswerkzeuge und Vertiefungen',
     links: [
       ['KI-Stresstest vor dem Aufgabenumbau · Doan Winkel', 'https://www.linkedin.com/posts/doanwinkel_before-i-assign-anything-i-ask-ai-to-cheat-activity-7476295744560254976-My7P'],
-      ['Ausführlicher Prüf- und Umbauprompt · François Jourde', 'https://github.com/jourde/prompts/blob/main/docs/assessment-redesign/en.md'],
+      ['Ausführlicher Prüf- und Umbauprompt · François Jourde', 'https://hjperino.github.io/task-audit/'],
       ['KI-Aufgaben-Transformator', 'https://digitalespausenbrot.ch/ki-aufgaben-transformator/'],
       ['Planungsvorlage KI-Aufgabenkultur von Falck und Flick', 'https://joschafalck.de/ki-didaktik-planungsvorlage/'],
-      ['Leitfaden Aufgabenkultur mit KI', 'https://joschafalck.de/leitfaden-aufgaben/'],
       ['Entscheidungsbaum KI und Hausaufgaben', 'https://view.genially.com/69fb3374dbd17c55f9d937de'],
     ],
   },
@@ -108,9 +136,11 @@ const sources = [
     value: 'kontext',
     title: 'Schweizer Kontext und Veranstaltung',
     links: [
+      ['Praxisbeispiele: Denken mit KI · Digital Learning Hub Sek II', 'https://dlh.zh.ch/home/fokus-2026?view=article&id=1106:praxisbeispiele-denken-mit-ki&catid=174'],
+      ['Impulsworkshops des DLH', 'https://dlh.zh.ch/home/impuls-workshops'],
+      ['Weiterbildungs-Kompass des DLH', 'https://dlh.zh.ch/home/wb-kompass'],
       ['Künstliche Intelligenz in der Volksschule · Kanton Zürich', 'https://www.zh.ch/de/bildung/informationen-fuer-schulen/informationen-volksschule/volksschule-schulinfo-unterricht/kuenstliche-intelligenz.html'],
       ['Educafé September · Edubase', 'https://www.edubase.ch/edubase/events/event/educafe-september'],
-      ['Kurse und Workshops des Digital Learning Hub Sek II', 'https://dlh.zh.ch/home/impuls-workshops'],
     ],
   },
 ];
@@ -135,7 +165,7 @@ export function CoreExampleAccordion() {
     <div className="content-accordion">
       {coreExamples.map((example, index) => (
         <details key={example.value} className="accordion-item" open={index === 0}>
-          <summary className="accordion-trigger">
+          <summary className="accordion-trigger" aria-label={`Details zu ${example.title} aufklappen`}>
             <span>
               <strong>{example.title}</strong>
               <small>{example.meta}</small>
@@ -144,16 +174,40 @@ export function CoreExampleAccordion() {
           <div className="accordion-content">
             <div className="example-detail-grid">
               <div>
-                <h4>Ausgangslage</h4>
+                <h4>Herkömmliche Aufgabenstellung</h4>
                 <p>{example.before}</p>
               </div>
               <div>
                 <h4>Umbau</h4>
                 <p>{example.after}</p>
+                {example.tools ? (
+                  <div className="example-tools">
+                    {example.toolsLabel ? <small>{example.toolsLabel}</small> : null}
+                    {example.tools.map((tool) => (
+                      <a href={tool.href} target="_blank" rel="noreferrer" key={tool.href}>
+                        {tool.label}
+                        <ExternalLink aria-hidden="true" size={14} />
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
               </div>
               <div>
                 <h4>Sichtbarer Lernnachweis</h4>
                 <p>{example.trace}</p>
+                {example.resource ? (
+                  <div className="example-resource">
+                    <a
+                      href={example.resource.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${example.resource.label} (öffnet in neuem Tab)`}
+                    >
+                      {example.resource.label}
+                      <ExternalLink aria-hidden="true" size={16} />
+                    </a>
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Bloom als Denk-Werkzeugkasten</title>
+  <desc id="desc">Sechs Bereiche der revidierten Bloom-Taxonomie mit handlungsnahen Verben für die Gestaltung von Lernaufgaben.</desc>
+  <style>
+    .sans { font-family: "Liberation Sans", Arial, sans-serif; }
+    .ink { fill: #16272a; }
+    .petrol { fill: #1d3437; }
+    .muted { fill: #536568; }
+    .verb { font-size: 28px; font-weight: 700; }
+    .label { font-size: 34px; font-weight: 700; }
+    .number { font-size: 24px; font-weight: 700; }
+  </style>
+
+  <rect width="1600" height="1100" fill="#fbfaf7"/>
+  <circle cx="1510" cy="72" r="42" fill="#f9d1b4"/>
+  <circle cx="1560" cy="118" r="20" fill="#dccee4"/>
+  <circle cx="95" cy="1038" r="26" fill="#e8efee"/>
+
+  <text x="90" y="88" class="sans petrol" font-size="21" font-weight="700" letter-spacing="3">FRAGE 2 · KOGNITIVE AKTIVITÄT</text>
+  <text x="90" y="158" class="sans ink" font-size="64" font-weight="700">Bloom als Denk-Werkzeugkasten</text>
+  <text x="90" y="202" class="sans muted" font-size="27">Verben helfen, die verlangte Denkleistung einer Aufgabe sichtbar zu machen.</text>
+  <line x1="90" y1="236" x2="1510" y2="236" stroke="#d9e0df" stroke-width="2"/>
+
+  <!-- row 1 -->
+  <g>
+    <rect x="90" y="275" width="690" height="190" rx="20" fill="#e8efee" stroke="#1d3437" stroke-width="3"/>
+    <circle cx="143" cy="325" r="27" fill="#1d3437"/>
+    <text x="143" y="334" text-anchor="middle" class="sans number" fill="#fff">01</text>
+    <text x="190" y="337" class="sans label petrol">Erinnern</text>
+    <text x="190" y="395" class="sans verb ink">nennen · erkennen · wiedergeben</text>
+  </g>
+  <g>
+    <rect x="820" y="275" width="690" height="190" rx="20" fill="#fff4ec" stroke="#ec6608" stroke-width="3"/>
+    <circle cx="873" cy="325" r="27" fill="#ec6608"/>
+    <text x="873" y="334" text-anchor="middle" class="sans number" fill="#fff">02</text>
+    <text x="920" y="337" class="sans label" fill="#ec6608">Verstehen</text>
+    <text x="920" y="395" class="sans verb ink">erklären · zusammenfassen · einordnen</text>
+  </g>
+
+  <!-- row 2 -->
+  <g>
+    <rect x="90" y="495" width="690" height="190" rx="20" fill="#eef4f3" stroke="#5a817f" stroke-width="3"/>
+    <circle cx="143" cy="545" r="27" fill="#5a817f"/>
+    <text x="143" y="554" text-anchor="middle" class="sans number" fill="#fff">03</text>
+    <text x="190" y="557" class="sans label" fill="#376765">Anwenden</text>
+    <text x="190" y="615" class="sans verb ink">einsetzen · ausführen · übertragen</text>
+  </g>
+  <g>
+    <rect x="820" y="495" width="690" height="190" rx="20" fill="#f9d1b4" stroke="#ec6608" stroke-width="3"/>
+    <circle cx="873" cy="545" r="27" fill="#ec6608"/>
+    <text x="873" y="554" text-anchor="middle" class="sans number" fill="#fff">04</text>
+    <text x="920" y="557" class="sans label" fill="#b84d05">Analysieren</text>
+    <text x="920" y="615" class="sans verb ink">vergleichen · untersuchen · strukturieren</text>
+  </g>
+
+  <!-- row 3 -->
+  <g>
+    <rect x="90" y="715" width="690" height="190" rx="20" fill="#dccee4" stroke="#8a5da4" stroke-width="3"/>
+    <circle cx="143" cy="765" r="27" fill="#8a5da4"/>
+    <text x="143" y="774" text-anchor="middle" class="sans number" fill="#fff">05</text>
+    <text x="190" y="777" class="sans label" fill="#70488a">Beurteilen</text>
+    <text x="190" y="835" class="sans verb ink">prüfen · abwägen · begründen</text>
+  </g>
+  <g>
+    <rect x="820" y="715" width="690" height="190" rx="20" fill="#f4eee8" stroke="#1d3437" stroke-width="3"/>
+    <circle cx="873" cy="765" r="27" fill="#1d3437"/>
+    <text x="873" y="774" text-anchor="middle" class="sans number" fill="#fff">06</text>
+    <text x="920" y="777" class="sans label petrol">Gestalten</text>
+    <text x="920" y="835" class="sans verb ink">entwerfen · entwickeln · neu kombinieren</text>
+  </g>
+
+  <rect x="40" y="950" width="1520" height="86" rx="18" fill="#1d3437"/>
+  <text x="75" y="985" class="sans" fill="#fff" font-size="22" font-weight="700">Wichtig:</text>
+  <text x="185" y="985" class="sans" fill="#fff" font-size="22">Ein Verb allein macht eine Aufgabe noch nicht anspruchsvoll.</text>
+  <text x="75" y="1017" class="sans" fill="#fff" font-size="22">Entscheidend ist, was genau die Lernenden untersuchen, welche Zusammenhänge sie selber herstellen und wie sie ihr Urteil selbstständig begründen.</text>
+
+  <text x="90" y="1072" class="sans muted" font-size="17">Bloom benennt die Denkleistung · ICAP fragt, wie Lernende sich daran beteiligen</text>
+  <text x="1510" y="1072" text-anchor="end" class="sans muted" font-size="17">Eigene Übersicht nach Anderson/Krathwohl und Andrew Churches</text>
+</svg>

@@ -19,37 +19,64 @@ const taskCheckQuestions = [
   {
     title: 'Lernziel und Agency',
     question: 'Was sollen Lernende selbst verstehen, beurteilen und tun können?',
+    graphic: null,
   },
   {
     title: 'Kognitive Aktivität',
-    question: 'Welche kognitive Aktivität verlangt die Aufgabe?',
+    question: 'Welches Denken verlangt die Aufgabe? (z. B. erklären, vergleichen, begründen)',
+    graphic: {
+      href: './images/bloom-denkaktivitaeten.svg',
+      alt: 'Bloom als Denk-Werkzeugkasten mit sechs Denkbereichen und handlungsnahen Verben',
+      label: 'Bloom-Verben als Denkimpulse öffnen',
+      variants: null,
+    },
   },
   {
     title: 'Rolle der KI',
-    question: 'Was darf oder soll die KI leisten?',
+    question: (
+      <>
+        Was darf oder soll die KI leisten? (
+        <a href="https://aiassessmentscale.com/" target="_blank" rel="noreferrer">
+          AIAS
+        </a>
+        )
+      </>
+    ),
+    graphic: {
+      href: './images/ai-assessment-scale-2-1-titled-large-de.png',
+      alt: 'Deutsche Fassung der AI Assessment Scale (AIAS) v2.1 mit fünf Stufen der KI-Nutzung in Aufgaben',
+      label: 'AIAS-Grafik öffnen',
+      variants: [
+        {
+          href: './images/ai-assessment-scale-2-1-titled-large-de.png',
+          label: 'de',
+          ariaLabel: 'Deutsche AIAS-Grafik öffnen',
+        },
+        {
+          href: './images/ai-assessment-scale-2-1-titled-large.png',
+          label: 'en',
+          ariaLabel: 'Englische AIAS-Grafik öffnen',
+        },
+      ],
+    },
   },
   {
     title: 'Menschliches Urteil und Lernspuren',
     question: 'Welches menschliche Urteil muss sichtbar werden – und in welchen Lernspuren?',
+    graphic: null,
   },
   {
     title: 'Validitätscheck',
     question: 'Bewirkt die Aufgabe tatsächliches Verstehen oder produziert sie nur überzeugenden Output?',
+    graphic: null,
   },
 ];
 
 const lenses = [
-  ['Rhetorik', 'Wie überzeugend, klar und adressatengerecht wirkt das Ergebnis?'],
-  ['Evidenz', 'Welche Aussagen sind belegt und welche müssen überprüft werden?'],
+  ['Sprachliche Ausgestaltung', 'Wie überzeugend, klar und adressatengerecht wirkt das Ergebnis?'],
+  ['Gültigkeit', 'Welche Aussagen sind belegt und welche müssen überprüft werden?'],
   ['Annahmen', 'Was setzt die Antwort voraus, ohne es ausdrücklich zu nennen?'],
   ['Verantwortung', 'Wer entscheidet über Verwendung, Veröffentlichung oder Umsetzung?'],
-];
-
-const fluencySkills = [
-  ['Delegation', 'Aufgaben zwischen Mensch und KI sinnvoll aufteilen.'],
-  ['Description', 'Ziel, Kriterien, Kontext und Materialien präzise beschreiben.'],
-  ['Discernment', 'Vorgehen und Ergebnisse fachlich sowie kritisch prüfen.'],
-  ['Diligence', 'Verantwortung für Prozess, Entscheidungen und Ergebnis übernehmen.'],
 ];
 
 export default function Home() {
@@ -73,7 +100,10 @@ export default function Home() {
 
       <section className="hero">
         <div className="hero-copy">
-          <p className="eyebrow">Educafé · 24. September 2026</p>
+          <p className="eyebrow">
+            <span>Educafé ·</span>
+            <span className="hero-date">24. September 2026</span>
+          </p>
           <h1>KI hat gute Aufgaben nicht zerstört.</h1>
           <p className="hero-lead">
             Sie macht sichtbar, welche Aufgaben bisher vor allem fertige Produkte
@@ -135,6 +165,11 @@ export default function Home() {
             Wenn das Lernziel feststeht, zeigen zwei Fragen, ob das Aufgabenformat
             individuelles Verstehen überhaupt sichtbar machen kann.
           </p>
+          <blockquote className="diagnostic-quote">
+            «Wer Aufgaben jetzt neu baut, baut sie nicht gegen KI, sondern für das,
+            was Prüfungsdesign schon immer leisten sollte: eine klare Trennung zwischen
+            Verstehen und Vortäuschen.»
+          </blockquote>
           <p className="source-note">
             Quellen: <a href="https://barbarageyer.substack.com/p/das-polmodell" target="_blank" rel="noreferrer">Barbara Geyer: «Das Polmodell» (Substack)</a> und <a href="https://de.linkedin.com/posts/barbara-geyer_welche-aufgabenstellungen-funktionieren-in-activity-7500445923391574016-nTHQ" target="_blank" rel="noreferrer">«Welche Aufgabenstellungen funktionieren in Zeiten von KI noch?» (LinkedIn)</a>.
           </p>
@@ -187,23 +222,23 @@ export default function Home() {
             über die Kompetenz einer einzelnen Person schliessen lässt.
           </p>
         </div>
-        <div className="pole-track" role="list" aria-label="Drei Zonen des Polmodells">
-          <article className="pole-card presence" role="listitem">
+        <ul className="pole-track" aria-label="Drei Zonen des Polmodells">
+          <li className="pole-card presence">
             <span className="pole-number">01</span>
             <h3>Präsenzpol</h3>
             <p>Die Leistung entsteht mündlich, praktisch oder unter Aufsicht und ist einer Person zurechenbar.</p>
-          </article>
-          <article className="pole-card integrated" role="listitem">
+          </li>
+          <li className="pole-card integrated">
             <span className="pole-number">02</span>
             <h3>Integrierter Pol</h3>
             <p>KI liefert Rohmaterial. Die bewertete Leistung entsteht beim Prüfen, Entscheiden und Verbessern.</p>
-          </article>
-          <article className="pole-card danger" role="listitem">
+          </li>
+          <li className="pole-card danger">
             <span className="pole-number">03</span>
             <h3>Gefährliche Mitte</h3>
             <p>Ein unbeaufsichtigtes Endprodukt soll Kompetenz belegen, obwohl KI wesentliche Teile erzeugen kann.</p>
-          </article>
-        </div>
+          </li>
+        </ul>
         <p className="model-note">
           <strong>Wichtig:</strong> Bei einer formativen Lernaufgabe kann ein KI-Produkt
           sehr nützlich sein. Es darf nur nicht allein als Nachweis selbst aufgebauter
@@ -224,12 +259,48 @@ export default function Home() {
           </p>
         </div>
         <ol className="question-grid" aria-label="Vier Gestaltungsebenen und ein Validitätscheck">
-          {taskCheckQuestions.map(({ title, question }, index) => (
+          {taskCheckQuestions.map(({ title, question, graphic }, index) => (
             <li className={index === 4 ? 'final-check' : undefined} key={title}>
               <span>{String(index + 1).padStart(2, '0')}</span>
               <div>
                 <h3>{title}</h3>
                 <p>{question}</p>
+                {graphic?.variants ? (
+                  <div className="question-graphic-choice">
+                    <img src={graphic.href} alt={graphic.alt} width="1491" height="1055" />
+                    <div className="question-graphic-choice-row">
+                      <strong>{graphic.label}:</strong>
+                      <span className="question-graphic-language-links" aria-label="Sprachauswahl">
+                        {graphic.variants.map((variant) => (
+                          <a
+                            href={variant.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`${variant.ariaLabel} (öffnet in neuem Tab)`}
+                            hrefLang={variant.label}
+                            key={variant.label}
+                          >
+                            {variant.label}
+                          </a>
+                        ))}
+                      </span>
+                    </div>
+                  </div>
+                ) : graphic ? (
+                  <a
+                    className="question-graphic-link"
+                    href={graphic.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${graphic.label} (öffnet in neuem Tab)`}
+                  >
+                    <img src={graphic.href} alt={graphic.alt} width="1600" height="1100" />
+                    <span>
+                      {graphic.label}
+                      <ArrowRight aria-hidden="true" size={18} />
+                    </span>
+                  </a>
+                ) : null}
               </div>
             </li>
           ))}
@@ -278,7 +349,7 @@ export default function Home() {
             </p>
             <a
               className="stress-test-link"
-              href="https://github.com/jourde/prompts/blob/main/docs/assessment-redesign/en.md"
+              href="https://hjperino.github.io/task-audit/"
               target="_blank"
               rel="noreferrer"
             >
@@ -288,23 +359,29 @@ export default function Home() {
           </div>
         </aside>
         <p className="source-note">
-          Kurztest nach <a href="https://www.linkedin.com/posts/doanwinkel_before-i-assign-anything-i-ask-ai-to-cheat-activity-7476295744560254976-My7P" target="_blank" rel="noreferrer">Doan Winkel: «Before I assign anything, I ask AI to cheat on it»</a>. Ausführlicher Prüf- und Umbauprompt von <a href="https://github.com/jourde/prompts/blob/main/docs/assessment-redesign/en.md" target="_blank" rel="noreferrer">François Jourde</a>.
+          Kurztest nach <a href="https://www.linkedin.com/posts/doanwinkel_before-i-assign-anything-i-ask-ai-to-cheat-activity-7476295744560254976-My7P" target="_blank" rel="noreferrer">Doan Winkel: «Before I assign anything, I ask AI to cheat on it»</a>. Ausführlicher Prüf- und Umbauprompt von <a href="https://pro.europeana.eu/person/francois-jourde" target="_blank" rel="noreferrer">François Jourde</a>.
+        </p>
+        <p className="source-note paul-reference">
+          Hinweis: <a href="https://www.linkedin.com/posts/paulmatthewsai_i-just-created-an-8-page-pdf-on-how-to-redesign-activity-7500284029221367809-d2Px/" target="_blank" rel="noreferrer">Paul Matthews · Beitrag zur Neugestaltung von Aufgaben mit KI</a>.
         </p>
         <div className="redesign-grid">
           <article>
             <span>01</span>
             <h3>Ersetzen</h3>
-            <p>Austauschbare Standardteile werden durch eine fach-, unterrichts- oder ortsspezifische Leistung ersetzt, etwa ein reales lokales Beispiel.</p>
+            <p>Statt eines traditionellen Aufsatzes, der leicht von einer KI erzeugt werden kann, wird das Kernformat durch eine Aufgabe ersetzt, die eine persönliche Leistung oder Interaktion in Echtzeit erfordert.</p>
+            <p className="redesign-example"><strong>Beispiele:</strong> Live-Rede, Videopräsentation, Podcast, interaktive Debatte oder Viva-voce-Prüfung (mündliche Prüfung)</p>
           </article>
           <article>
             <span>02</span>
             <h3>Ergänzen</h3>
             <p>Das Produkt bleibt, verlangt aber zusätzlich Begründungen, Quellenkontrolle, Änderungsentscheidungen oder ein Fachgespräch.</p>
+            <p className="redesign-example"><strong>Beispiele:</strong> handschriftliche Reflexion im Unterricht; eine kommentierte Quellenliste, in der erläutert wird, warum die Quellen ausgewählt wurden</p>
           </article>
           <article>
             <span>03</span>
             <h3>Etappieren</h3>
             <p>Der Weg wird sichtbar: eigener Anfang, begrenzte KI-Phase, Prozessartefakt und menschlicher Abschluss werden verbindlich.</p>
+            <p className="redesign-example"><strong>Beispiel:</strong> einen mehrwöchigen Aufsatz in verbindliche, im Unterricht bearbeitete Zwischenetappen aufteilen, etwa gemeinsame Ideensammlungen, Feedbackrunden zur Gliederung und betreutes Schreiben am Entwurf</p>
           </article>
         </div>
       </section>
@@ -312,8 +389,8 @@ export default function Home() {
       <section className="section examples-section" id="beispiele" aria-labelledby="beispiele-title">
         <div className="section-heading split-heading">
           <div>
-            <p className="eyebrow">Praxisbeispiele</p>
-            <h2 id="beispiele-title">KI-Output wird zum Prüfmaterial</h2>
+            <h2 id="beispiele-title" className="section-title">Praxisbeispiele</h2>
+            <p className="section-subtitle">KI-Output wird zum Prüfmaterial</p>
           </div>
           <aside className="interaction-note" aria-label="Bedienhinweis">
             <strong>Bedienhinweis</strong>
@@ -329,9 +406,8 @@ export default function Home() {
         <div className="subject-ideas">
           <div className="section-heading narrow-heading">
             <p className="eyebrow">Weitere Fächer</p>
-            <h3>Fünf übertragbare Vorschläge</h3>
             <p>
-              Diese Entwürfe sind bewusst fachoffen gehalten. Die konkreten Quellen,
+              Diese Entwürfe sind bewusst relativ allgemein gehalten. Die konkreten Quellen,
               Kriterien und fachlichen Sicherungen ergänzt die jeweilige Lehrperson.
             </p>
             <aside className="interaction-note" aria-label="Bedienhinweis">
@@ -359,32 +435,6 @@ export default function Home() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className="section fluency-section" id="fluency" aria-labelledby="fluency-title">
-        <div className="fluency-intro">
-          <p className="eyebrow">KI-Fluency im Dienst menschlicher Agency</p>
-          <h2 id="fluency-title">Gute Zusammenarbeit mit KI stärkt eigenes Urteilen</h2>
-          <p>
-            KI-Kompetenz zeigt sich nicht allein an einem geschickten Prompt. Entscheidend
-            bleibt, was Lernende selbst verstehen, prüfen und verantworten können.
-          </p>
-          <p className="source-note">
-            4D-Framework von Rick Dakan und Joseph Feller in Zusammenarbeit mit
-            Anthropic. Vertiefung: <a href="https://anthropic.skilljar.com/ai-fluency-for-educators" target="_blank" rel="noreferrer">AI Fluency for Educators</a>.
-          </p>
-        </div>
-        <ol className="fluency-list">
-          {fluencySkills.map(([title, text], index) => (
-            <li key={title}>
-              <span>{index + 1}</span>
-              <div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
       </section>
 
       <section className="section workshop-section" id="werkstatt" aria-labelledby="werkstatt-title">
@@ -425,9 +475,14 @@ export default function Home() {
             Licht oder CO₂ knapp wird?»
           </p>
         </div>
-        <a className="button workshop-link" href="https://digitalespausenbrot.ch/ki-aufgaben-transformator/" target="_blank" rel="noreferrer">
-          Externen KI-Aufgaben-Transformator öffnen <ArrowRight aria-hidden="true" size={18} />
-        </a>
+        <div className="workshop-links">
+          <a className="button workshop-link" href="https://digitalespausenbrot.ch/ki-aufgaben-transformator/" target="_blank" rel="noreferrer">
+            Externen KI-Aufgaben-Transformator öffnen <ArrowRight aria-hidden="true" size={18} />
+          </a>
+          <a className="button workshop-link" href="https://hjperino.github.io/task-audit/" target="_blank" rel="noreferrer">
+            Ausführlichen Prüf-Prompt öffnen <ArrowRight aria-hidden="true" size={18} />
+          </a>
+        </div>
       </section>
 
       <section className="section sources-section" id="quellen" aria-labelledby="quellen-title">
@@ -450,14 +505,20 @@ export default function Home() {
 
       <section className="closing-section" aria-labelledby="schluss-title">
         <Scale aria-hidden="true" size={34} />
-        <h2 id="schluss-title">Die haltbare Aufgabe ist nicht jene, an der KI scheitert.</h2>
-        <p>Es ist jene, bei der Lernende ohne eigenes Denken nicht bestehen.</p>
+        <h2 id="schluss-title">Die beständige Aufgabe ist jene, bei der Lernende ohne eigenes Denken nicht bestehen.</h2>
       </section>
 
       <footer>
         <div>
           <strong>Digital Learning Hub Sek II</strong>
           <p>Educafé September 2026 · Hansjürg Perino</p>
+          <p className="footer-license">
+            <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">Eigene Inhalte: CC BY 4.0</a>
+            {' · '}
+            <a href="https://github.com/hjperino/Educafe_KI_angepasste_Aufgabenstellungen/blob/main/LICENSE" target="_blank" rel="noreferrer">Code: MIT</a>
+            {' · '}
+            <a href="https://github.com/hjperino/Educafe_KI_angepasste_Aufgabenstellungen/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noreferrer">Hinweise zu Fremdmaterialien</a>
+          </p>
         </div>
         <nav aria-label="Navigation im Seitenfuss">
           <a href="#aufgabencheck">Aufgabencheck</a>

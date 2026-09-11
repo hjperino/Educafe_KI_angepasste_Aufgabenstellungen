@@ -1,22 +1,50 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { readdir, readFile, writeFile } from 'node:fs/promises';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const indexUrl = new URL('../dist/client/index.html', import.meta.url);
-const indexPath = fileURLToPath(indexUrl);
-const source = await readFile(indexPath, 'utf8');
+const clientDirectory = fileURLToPath(new URL('../dist/client/', import.meta.url));
+const cssDirectoryUrl = new URL('../dist/client/_next/static/css/', import.meta.url);
 
-const offlineHtml = source
-  .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '')
-  .replace(/<link\b(?=[^>]*rel="modulepreload")[^>]*>/g, '')
-  .replaceAll('="/./_next/', '="./_next/');
+async function findHtmlFiles(directory) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files = [];
 
-if (!offlineHtml.includes('href="./_next/static/css/')) {
-  throw new Error('The offline stylesheet reference was not generated as a relative path.');
+  for (const entry of entries) {
+    const entryPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) files.push(...await findHtmlFiles(entryPath));
+    if (entry.isFile() && entry.name.endsWith('.html')) files.push(entryPath);
+  }
+
+  return files;
 }
 
-if (/<script\b|rel="modulepreload"|="\/\.\/_next\//.test(offlineHtml)) {
-  throw new Error('The offline HTML still contains runtime-only or absolute asset references.');
+const htmlPaths = await findHtmlFiles(clientDirectory);
+for (const htmlPath of htmlPaths) {
+  const source = await readFile(htmlPath, 'utf8');
+  const relativeClientDirectory = path.relative(path.dirname(htmlPath), clientDirectory).replaceAll(path.sep, '/') || '.';
+  const offlineHtml = source
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '')
+    .replace(/<link\b(?=[^>]*rel="modulepreload")[^>]*>/g, '')
+    .replaceAll('="/./_next/', `="${relativeClientDirectory}/_next/`);
+
+  if (source.includes('/./_next/') && !offlineHtml.includes(`href="${relativeClientDirectory}/_next/static/css/`)) {
+    throw new Error(`The offline stylesheet reference in ${htmlPath} was not generated as a relative path.`);
+  }
+
+  if (/<script\b|rel="modulepreload"|="\/\.\/_next\//.test(offlineHtml)) {
+    throw new Error(`The offline HTML in ${htmlPath} still contains runtime-only or absolute asset references.`);
+  }
+
+  await writeFile(htmlPath, offlineHtml, 'utf8');
 }
 
-await writeFile(indexPath, offlineHtml, 'utf8');
-console.log('Offline index prepared: dist/client/index.html');
+for (const fileName of await readdir(cssDirectoryUrl)) {
+  if (!fileName.endsWith('.css')) continue;
+
+  const cssUrl = new URL(fileName, cssDirectoryUrl);
+  const css = await readFile(cssUrl, 'utf8');
+  const offlineCss = css.replace(/url\((["']?)\.\/media\//g, 'url($1../media/');
+  if (offlineCss !== css) await writeFile(cssUrl, offlineCss, 'utf8');
+}
+
+console.log(`Offline HTML prepared: ${htmlPaths.length} pages in dist/client`);

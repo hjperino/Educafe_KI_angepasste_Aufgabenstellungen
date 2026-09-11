@@ -1,7 +1,14 @@
 {
-  "name": "sites-project",
+  "name": "educafe-ki-angepasste-aufgabenstellungen",
   "version": "0.1.0",
+  "description": "Educafé-Webseite zur Gestaltung KI-angepasster Aufgabenstellungen",
   "private": true,
+  "packageManager": "pnpm@11.19.0",
+  "homepage": "https://hjperino.github.io/Educafe_KI_angepasste_Aufgabenstellungen/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hjperino/Educafe_KI_angepasste_Aufgabenstellungen.git"
+  },
   "engines": {
     "node": ">=22.13.0"
   },
@@ -11,7 +18,7 @@
     "postbuild": "node scripts/make-offline.mjs",
     "validate": "node scripts/validate-offline.mjs",
     "start": "wrangler dev --config dist/server/wrangler.json",
-    "lint": "oxlint",
+    "lint": "oxlint -c .oxlintrc.json",
     "format": "oxfmt"
   },
   "dependencies": {
