@@ -192,8 +192,10 @@ footer nav a:focus-visible {
 .hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 18rem);
+  align-content: center;
+  align-items: start;
+  gap: clamp(2rem, 4vw, 3.5rem);
   max-width: 1180px;
   min-height: calc(100vh - 4.75rem);
   margin: 0 auto;
@@ -223,8 +225,52 @@ footer nav a:focus-visible {
   pointer-events: none;
 }
 .hero-copy,
+.hero-access,
 .diagnostic-card { position: relative; z-index: 1; }
 .hero-copy { max-width: 920px; }
+.hero-access {
+  justify-self: end;
+  width: 100%;
+  padding: 1.3rem;
+  border: 1px solid rgb(29 52 55 / 22%);
+  border-radius: var(--radius);
+  background: rgb(251 250 247 / 88%);
+  box-shadow: 0 0.55rem 1.6rem rgb(29 52 55 / 7%);
+  backdrop-filter: blur(8px);
+}
+.hero-access-title {
+  margin-bottom: 0.45rem;
+  color: var(--petrol);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+.hero-access-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--petrol);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  text-underline-offset: 0.25rem;
+}
+.hero-access-link:hover,
+.hero-access-link:focus-visible { color: var(--orange); }
+.hero-access-qr {
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgb(29 52 55 / 12%);
+  border-radius: calc(var(--radius) - 0.3rem);
+  background: white;
+}
+.hero-access-qr img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .hero .eyebrow {
   font-size: clamp(2.8rem, 6vw, 5rem);
   line-height: 1.03;
@@ -233,6 +279,7 @@ footer nav a:focus-visible {
 .hero .hero-date {
   margin-top: 0.18em;
   font-size: 0.72em;
+  white-space: nowrap;
 }
 .hero h1 {
   max-width: 790px;
@@ -776,6 +823,8 @@ footer nav { align-items: center; }
   .brand-org-link { order: 2; margin-left: auto; }
   .site-header nav { order: 3; width: 100%; overflow-x: auto; padding-bottom: 0.15rem; }
   .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero .hero-date { white-space: normal; }
+  .hero-access { justify-self: start; max-width: 18rem; }
   .diagnostic-card { max-width: 660px; }
   .split-heading, .subject-ideas, .diagnostic-section, .planning-path, .redesign-stress-test { grid-template-columns: 1fr; }
   .planning-path li { min-height: 0; }

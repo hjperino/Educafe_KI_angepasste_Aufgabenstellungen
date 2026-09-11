@@ -128,6 +128,33 @@ export default function Home() {
             Das begründete Urteil bleibt bei den Lernenden.
           </p>
         </div>
+        <aside className="hero-access" aria-labelledby="hero-access-title">
+          <p className="hero-access-title" id="hero-access-title">
+            Zugang zu dieser Seite:
+          </p>
+          <a
+            className="hero-access-link"
+            href="https://tinyurl.com/Educafe-ai-tasks"
+            target="_blank"
+            rel="noreferrer"
+          >
+            tinyurl.com/Educafe-ai-tasks
+          </a>
+          <a
+            className="hero-access-qr"
+            href="https://tinyurl.com/Educafe-ai-tasks"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="QR-Code zur Kurzadresse tinyurl.com/Educafe-ai-tasks öffnen"
+          >
+            <img
+              src="./images/educafe-ai-tasks-qr.png"
+              alt="QR-Code zur Kurzadresse tinyurl.com/Educafe-ai-tasks"
+              width="640"
+              height="640"
+            />
+          </a>
+        </aside>
       </section>
 
       <section className="section learning-goal-section" id="lernziel" aria-labelledby="lernziel-title">
