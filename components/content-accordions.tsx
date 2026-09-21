@@ -120,6 +120,7 @@ const sources = [
       ['AIAS Implementation Guide', 'https://aiassessmentscale.com/implementation-guide/'],
       ['AI Fluency for Educators · Anthropic', 'https://anthropic.skilljar.com/ai-fluency-for-educators'],
       ['AI Literacy Framework', 'https://ailiteracyframework.org/'],
+      ['Die wichtige Rolle der Selbstregulation beim Lernen mit KI (Studientext englisch)', 'https://www.mdpi.com/2079-3200/14/9/208'],
     ],
   },
   {

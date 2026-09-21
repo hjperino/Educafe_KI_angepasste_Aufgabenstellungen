@@ -13,7 +13,7 @@ Die veröffentlichte Webseite ist erreichbar unter:
 
 - Hauptadresse: <https://hjperino.github.io/Educafe_KI_angepasste_Aufgabenstellungen/>
 - Kurzadresse für Teilnehmende: <https://tinyurl.com/Educafe-ai-tasks>
-- Letzter veröffentlichter Commit: `8efd94a` – `Add participant access block with QR code`
+- Letzter bestätigter Veröffentlichungsstand vor der aktuellen Quellen-Ergänzung: `a551d20` – `Update examples, permissions, and browser checks`
 
 Der Programmcode wird unter MIT veröffentlicht, die eigenen Inhalte unter CC BY 4.0. Abweichende Rechte an Fremdmaterialien sind separat dokumentiert. Barbara Geyer hat die Verwendung ihres Polmodells im Educafé-Beitrag und die Darstellung der Abbildung auf der Materialseite ausdrücklich erlaubt, sofern sie als Quelle genannt wird. Die Grafik bleibt von den Projektlizenzen ausgenommen.
 
@@ -39,34 +39,40 @@ Die Veröffentlichungsworkflows für die letzten Layoutänderungen wurden erfolg
 
 - `bb5c033` – Kopfzeile neu geordnet und DLH-Webseite verlinkt
 - `8efd94a` – Zugangsblock mit Kurzadresse und QR-Code ergänzt
+- `a551d20` – französisches Praxisbeispiel, Nutzungserlaubnis, geschlossene Praxisbeispiele und Browsercheck aktualisiert
 
-Die Hauptadresse, die Kurzadresse und das veröffentlichte QR-Bild wurden nach dem Deployment direkt online geprüft. Die Kurzadresse leitet korrekt auf die GitHub-Pages-Seite weiter.
+Die Hauptadresse, die Kurzadresse und das veröffentlichte QR-Bild wurden nach dem Deployment direkt online geprüft. Die Kurzadresse leitet korrekt auf die GitHub-Pages-Seite weiter. Hans hat am 21. September bestätigt, dass die mit `a551d20` veröffentlichte neue Fassung sichtbar ist.
+
+Die erzeugte Datei `dist/client/index.html` liegt nicht im GitHub-Dateibaum. `dist/` ist von Git ausgeschlossen; der GitHub-Pages-Workflow erzeugt die Offline-Ausgabe bei jedem Push auf `main` neu und veröffentlicht sie als Pages-Artefakt. Im Repository wird deshalb keine fertige `index.html` von Hand ersetzt.
 
 ## Verlässliche Arbeitsdateien
 
 - Projektordner: `/Users/hj/Codex_Workfolder/Projects/KI-angeppasste Aufgabenstellungen/webseite`
 - Seiteninhalt und Struktur: `app/page.tsx`
+- Praxisbeispiele und Quellen-Akkordeons: `components/content-accordions.tsx`
 - Gestaltung: `app/globals.css`
+- Wiederverwendbarer Browsercheck: `scripts/validate-browser.py`
 - Erzeugte Offline-Seite: `dist/client/index.html`
 - Beispielseite zur französischen Wortschatzgeschichte: `public/beispiel-wortschatzgeschichte/index.html`
 - Erzeugte Offline-Beispielseite: `dist/client/beispiel-wortschatzgeschichte/index.html`
 - Ausführlicher inhaltlicher Stand: `/Users/hj/Codex_Workfolder/Projects/KI-angeppasste Aufgabenstellungen/PROJEKTSTAND.md`
 
-`dist/client/index.html` ist ein erzeugtes Ergebnis und wird **nicht direkt bearbeitet**. Änderungen erfolgen in `app/page.tsx` beziehungsweise `app/globals.css`; danach wird die Offline-Fassung neu erzeugt.
+`dist/client/index.html` ist ein erzeugtes Ergebnis und wird **nicht direkt bearbeitet**. Änderungen erfolgen in `app/page.tsx`, `components/content-accordions.tsx` beziehungsweise `app/globals.css`; danach wird die Offline-Fassung neu erzeugt.
 
 ## Aktueller technischer Stand
 
 - Git-Repository: `webseite/`
 - Branch: `main`
 - Ausgangscommit vor dem aktuellen Finetuning: `8d7e201` – `Refine website task check and learning guidance`
-- Aktueller Commit auf `main` und `origin/main`: `8efd94a` – `Add participant access block with QR code`
-- Lokaler, noch nicht veröffentlichter Änderungsstand vom 21. September 2026: französisches Praxisbeispiel präzisiert, Barbara Geyers Nutzungserlaubnis dokumentiert und alle drei Praxisbeispiele standardmässig geschlossen.
-- Der veröffentlichte Stand enthält die redaktionellen und gestalterischen Anpassungen, die statische Beispielseite, die lokalen Grafiken einschliesslich QR-Code, Lizenzhinweise und den GitHub-Pages-Workflow.
+- Referenzcommit vor der aktuellen Quellen-Ergänzung: `a551d20` – `Update examples, permissions, and browser checks`
+- Der veröffentlichte Stand enthält das präzisierte französische Praxisbeispiel, Barbara Geyers dokumentierte Nutzungserlaubnis, drei standardmässig geschlossene Praxisbeispiele und den wiederverwendbaren Browsercheck.
+- Ergänzung nach `a551d20`: Die Studie von Li et al. (2026) ist ausschliesslich als zusätzlicher Link unter «Kernmodelle und Forschung» aufgenommen; es kommt kein neuer Präsentationstext hinzu.
+- Die statische Beispielseite, die lokalen Grafiken einschliesslich QR-Code, Lizenzhinweise und der GitHub-Pages-Workflow bleiben enthalten.
 - Lokale Offline-Ausgabe am 21. September 2026 neu erzeugt.
 - Offline-Prüfung erfolgreich: **2 HTML-Seiten, 13 interne Links, 15 lokale Assets, 11 Akkordeon-Elemente**.
 - Der Vinext-Build kompiliert alle Stufen. Das abgeschirmte Prerendering kann weiterhin mit `listen EPERM 127.0.0.1` abbrechen; mit der vorgesehenen lokalen Berechtigung wurde der Build am 21. September erfolgreich abgeschlossen.
 - Linter erfolgreich ohne Meldungen abgeschlossen.
-- Playwright und Chromium sind projektlokal installiert und von Git ausgeschlossen. Der feste Befehl `pnpm test:browser` prüft die geschlossenen Praxisbeispiele, das Öffnen und Schliessen sowie Konsolenfehler in Desktop- und Mobilbreite.
+- Playwright und Chromium sind projektlokal installiert und von Git ausgeschlossen. Der feste Befehl `pnpm test:browser` prüft die geschlossenen Praxisbeispiele, das Öffnen und Schliessen sowie Konsolenfehler in Desktop- und Mobilbreite. Dieser Browsercheck wurde am 21. September erfolgreich ausgeführt.
 - Beim zusätzlichen Offline-Browsercheck vom 11. September bestanden alle **66** gezielten Inhalts-, Darstellungs-, Navigations-, Link-, QR- und Lizenzprüfungen; es gab keine Konsolenfehler und keine fehlenden lokalen Ressourcen.
 
 Arbeitsablauf:
@@ -74,6 +80,7 @@ Arbeitsablauf:
 ```bash
 pnpm build
 pnpm validate
+pnpm test:browser
 ```
 
 Beim Build kann die abgeschirmte Umgebung das kurzzeitige Öffnen eines lokalen Ports mit `listen EPERM 127.0.0.1` verhindern. In diesem Fall denselben Build mit der dafür vorgesehenen lokalen Berechtigung erneut ausführen; dies ist kein Fehler der Webseite.
