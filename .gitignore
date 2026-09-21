@@ -3,6 +3,8 @@ dist/
 .vinext/
 .next/
 .wrangler/
+.playwright-venv/
+.playwright-browsers/
 .DS_Store
 *.log
 *.tsbuildinfo

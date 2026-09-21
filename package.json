@@ -17,6 +17,7 @@
     "build": "vinext build",
     "postbuild": "node scripts/make-offline.mjs",
     "validate": "node scripts/validate-offline.mjs",
+    "test:browser": ".playwright-venv/bin/python scripts/validate-browser.py",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint -c .oxlintrc.json",
     "format": "oxfmt"

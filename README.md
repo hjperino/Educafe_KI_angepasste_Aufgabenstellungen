@@ -26,6 +26,22 @@ Die statische Ausgabe wird in `dist/client` erzeugt. Die Webseite verwendet
 relative Pfade und kann deshalb auch direkt über `dist/client/index.html`
 geöffnet werden.
 
+### Lokaler Browsercheck
+
+Für echte Klick- und Darstellungsprüfungen kann Playwright projektlokal
+eingerichtet werden:
+
+```sh
+python3 -m venv .playwright-venv
+.playwright-venv/bin/python -m pip install playwright
+PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers .playwright-venv/bin/python -m playwright install chromium
+pnpm test:browser
+```
+
+Die lokale Python-Umgebung und die Browserdateien werden nicht in Git
+aufgenommen. Der Browsercheck erwartet eine zuvor mit `pnpm build` erzeugte
+Offline-Seite.
+
 ## Veröffentlichung
 
 Der Workflow `.github/workflows/pages.yml` prüft, baut und validiert die Seite
@@ -40,5 +56,5 @@ GitHub Pages.
   [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
 
 Insbesondere die AIAS-Grafiken stehen unter CC BY-NC-SA 4.0. Die
-Polmodell-Grafik ist von den Projektlizenzen ausgenommen; ihre Freigabe zur
-Veröffentlichung wurde angefragt.
+Polmodell-Grafik wird mit ausdrücklicher Erlaubnis von Barbara Geyer und unter
+Namensnennung verwendet. Sie ist von den Projektlizenzen ausgenommen.

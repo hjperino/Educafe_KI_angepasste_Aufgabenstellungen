@@ -24,11 +24,14 @@ verwendet werden.
 - Datei: `public/images/polmodell.jpeg`
 - Urheberrechtshinweis im Bild: Barbara Geyer | Hochschule Burgenland
 - Quelle: [Barbara Geyer: «Das Polmodell»](https://barbarageyer.substack.com/p/das-polmodell)
-- Status: Die Freigabe zur Veröffentlichung wurde angefragt.
+- Nutzungserlaubnis: Barbara Geyer hat Hansjürg ausdrücklich erlaubt, das
+  Polmodell im Educafé-Beitrag zu verwenden und die Abbildung auf der
+  Materialseite zu zeigen, sofern sie als Quelle genannt wird.
 
 Diese Grafik steht nicht unter der MIT- oder CC-BY-4.0-Lizenz dieses Projekts.
-Alle Rechte verbleiben bei der Rechteinhaberin. Dieser Hinweis erteilt keine
-Erlaubnis zur Weiterverwendung.
+Alle Rechte verbleiben bei der Rechteinhaberin. Die erteilte Erlaubnis gilt für
+die genannte Verwendung im Educafé-Projekt und ist keine allgemeine Lizenz zur
+Weiterverwendung durch Dritte.
 
 ## Liberation Sans
 

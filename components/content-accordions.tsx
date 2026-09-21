@@ -27,13 +27,14 @@ const coreExamples = [
     value: 'wortschatz',
     title: 'Wortschatzgeschichte als Prüfmaterial',
     meta: 'Französisch · KI erzeugt ein prüfbares Artefakt',
-    before: 'Eine KI-Geschichte wird als anschauliches Übungsmaterial konsumiert.',
+    before:
+      'Neuer Wortschatz und neue Formen werden anhand eines einzigen vorgegebenen Textes aus dem Kursbuch besprochen und gelernt.',
     after:
-      'Die Lernenden prüfen die Verwendung vorgegebener Ausdrücke, klären mehrdeutige Stellen, verbessern problematische Sätze und entwickeln eigene Varianten.',
+      'Die Lehrperson oder die Lernenden erstellen aus einer vorgegebenen Wortliste einen oder mehrere eigene Texte. Das kann eine «coole» Geschichte wie im Beispiel hier oder ein Text aus einem Interessengebiet der Schüler:innen sein. Die entstandenen Texte werden anschliessend kritisch beleuchtet.',
     tools: null,
     toolsLabel: null,
     trace:
-      'Markierungen im KI-Text, begründete Korrekturen und die sprachlichen Entscheidungen der Gruppe.',
+      'Markierungen im KI-Text, begründete Korrekturen, die sprachlichen Entscheidungen der Gruppe sowie Erklärungen zur Bedeutung der vorgegebenen Wortschatzelemente im neu entstandenen Kontext.',
     resource: {
       label: 'Beispiel Chatverlauf und «Extra»: Geschichte zu Video',
       href: './beispiel-wortschatzgeschichte/index.html',
@@ -163,8 +164,8 @@ function LinkList({ links }: { links: string[][] }) {
 export function CoreExampleAccordion() {
   return (
     <div className="content-accordion">
-      {coreExamples.map((example, index) => (
-        <details key={example.value} className="accordion-item" open={index === 0}>
+      {coreExamples.map((example) => (
+        <details key={example.value} className="accordion-item">
           <summary className="accordion-trigger" aria-label={`Details zu ${example.title} aufklappen`}>
             <span>
               <strong>{example.title}</strong>
