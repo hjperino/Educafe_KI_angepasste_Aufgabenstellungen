@@ -35,6 +35,23 @@ def check_examples(browser, viewport):
         examples.nth(index).evaluate("element => element.open") for index in range(3)
     ] == [False, False, False], "Nicht alle Kernbeispiele laden geschlossen."
 
+    preview = page.locator(".english-ai-preview")
+    assert preview.count() == 1, "Die Vorankündigung zu «Englisch mit KI» fehlt."
+    preview_link = preview.locator("a")
+    assert preview_link.get_attribute("href") == (
+        "https://dlh.zh.ch/home/innovationsfonds/projektvorstellungen/uebersicht/"
+        "997-selbstverantwortliches-lernen-mit-ki-im-englisch"
+    ), "Der Link zum Innovationsfondsprojekt ist nicht korrekt."
+
+    access_link = page.locator(".hero-access-link")
+    access_link_size = float(
+        access_link.evaluate("element => getComputedStyle(element).fontSize.replace('px', '')")
+    )
+    assert access_link_size >= 20, "Die Kurzadresse ist nicht ausreichend vergrössert."
+    qr_width = page.locator(".hero-access-qr").bounding_box()["width"]
+    minimum_qr_width = 315 if viewport["width"] >= 1308 or viewport["width"] <= 820 else 250
+    assert qr_width >= minimum_qr_width, "Der QR-Code ist nicht ausreichend gross."
+
     first_example = examples.first
     first_summary = first_example.locator("summary")
     first_content = first_example.locator(".accordion-content")
@@ -56,11 +73,13 @@ def check_examples(browser, viewport):
 with sync_playwright() as playwright:
     chromium = playwright.chromium.launch(headless=True)
     check_examples(chromium, {"width": 1440, "height": 1000})
+    check_examples(chromium, {"width": 1100, "height": 900})
     check_examples(chromium, {"width": 390, "height": 844})
     chromium.close()
 
 print(
-    "Browsercheck bestanden: drei Praxisbeispiele geschlossen; "
-    "Öffnen und Schliessen funktionieren in Desktop- und Mobilbreite; "
+    "Browsercheck bestanden: QR-Code und Kurzadresse vergrössert; "
+    "Vorankündigung und Projektlink vorhanden; drei Praxisbeispiele geschlossen; "
+    "Öffnen und Schliessen funktionieren in Desktop-, Zwischen- und Mobilbreite; "
     "keine Konsolenfehler."
 )

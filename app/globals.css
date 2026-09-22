@@ -190,15 +190,18 @@ footer nav a:focus-visible {
 }
 
 .hero {
+  --hero-access-growth: clamp(0rem, calc((100vw - 1180px) / 2), 4rem);
+
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(16rem, 18rem);
+  grid-template-columns: minmax(0, 1fr) calc(18rem + var(--hero-access-growth));
   align-content: center;
   align-items: start;
   gap: clamp(2rem, 4vw, 3.5rem);
-  max-width: 1180px;
+  width: min(100%, calc(1180px + var(--hero-access-growth)));
+  max-width: none;
   min-height: calc(100vh - 4.75rem);
-  margin: 0 auto;
+  margin: 0 0 0 max(0px, calc((100vw - 1180px) / 2));
   padding: clamp(4rem, 8vw, 7rem) 1.25rem;
   overflow: hidden;
 }
@@ -231,7 +234,7 @@ footer nav a:focus-visible {
 .hero-access {
   justify-self: end;
   width: 100%;
-  padding: 1.3rem;
+  padding: 1rem;
   border: 1px solid rgb(29 52 55 / 22%);
   border-radius: var(--radius);
   background: rgb(251 250 247 / 88%);
@@ -251,7 +254,7 @@ footer nav a:focus-visible {
   display: inline-block;
   margin-bottom: 1rem;
   color: var(--petrol);
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.4;
   overflow-wrap: anywhere;
@@ -737,6 +740,26 @@ footer nav a:focus-visible {
 .example-resource a:hover,
 .example-resource a:focus-visible { color: var(--orange); }
 .example-resource svg { flex: 0 0 auto; }
+.english-ai-preview {
+  max-width: 1040px;
+  margin-top: 2rem;
+  padding: 1.2rem 1.4rem;
+  border-left: 4px solid var(--orange);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: white;
+  box-shadow: 0 0.55rem 1.6rem rgb(29 52 55 / 7%);
+  color: var(--petrol);
+  font-size: clamp(1.1rem, 1.35vw, 1.25rem);
+  line-height: 1.58;
+}
+.english-ai-preview p { margin-bottom: 0; }
+.english-ai-preview a {
+  color: var(--petrol);
+  font-weight: 700;
+  text-underline-offset: 0.2rem;
+}
+.english-ai-preview a:hover,
+.english-ai-preview a:focus-visible { color: var(--orange); }
 .subject-ideas { display: grid; grid-template-columns: minmax(15rem, 0.74fr) minmax(0, 1.26fr); gap: clamp(2rem, 7vw, 7rem); margin-top: clamp(5rem, 9vw, 8rem); }
 .subject-ideas .section-heading { margin-bottom: 0; }
 .subject-ideas .interaction-note { margin-top: 1.6rem; }
@@ -824,7 +847,7 @@ footer nav { align-items: center; }
   .site-header nav { order: 3; width: 100%; overflow-x: auto; padding-bottom: 0.15rem; }
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero .hero-date { white-space: normal; }
-  .hero-access { justify-self: start; max-width: 18rem; }
+  .hero-access { justify-self: start; max-width: 22rem; }
   .diagnostic-card { max-width: 660px; }
   .split-heading, .subject-ideas, .diagnostic-section, .planning-path, .redesign-stress-test { grid-template-columns: 1fr; }
   .planning-path li { min-height: 0; }

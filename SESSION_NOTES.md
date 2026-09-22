@@ -1,6 +1,6 @@
 # Session Notes: Educafé-Hauptseite
 
-**Stand:** 21. September 2026
+**Stand:** 22. September 2026
 **Zweck:** Übergabe des aktuellen lokalen und veröffentlichten Stands der Educafé-Präsentationswebseite.
 
 ## Veröffentlichungsfreigabe
@@ -13,6 +13,7 @@ Die veröffentlichte Webseite ist erreichbar unter:
 
 - Hauptadresse: <https://hjperino.github.io/Educafe_KI_angepasste_Aufgabenstellungen/>
 - Kurzadresse für Teilnehmende: <https://tinyurl.com/Educafe-ai-tasks>
+- Ausgangsstand vor dieser Veröffentlichung: `1bd01d8` – `Add self-regulated learning study source`
 - Letzter bestätigter Veröffentlichungsstand vor der aktuellen Quellen-Ergänzung: `a551d20` – `Update examples, permissions, and browser checks`
 
 Der Programmcode wird unter MIT veröffentlicht, die eigenen Inhalte unter CC BY 4.0. Abweichende Rechte an Fremdmaterialien sind separat dokumentiert. Barbara Geyer hat die Verwendung ihres Polmodells im Educafé-Beitrag und die Darstellung der Abbildung auf der Materialseite ausdrücklich erlaubt, sofern sie als Quelle genannt wird. Die Grafik bleibt von den Projektlizenzen ausgenommen.
@@ -30,6 +31,10 @@ Im Einstieg ist «Educafé ·» gleich gross wie «Praxisbeispiele». Das etwas 
 Die Kopfzeile beginnt mit «KI-angepasste Aufgaben gestalten». Danach folgen die Navigationspunkte. «Digital Learning Hub Sek II» steht rechts und führt in einem neuen Tab zu <https://dlh.zh.ch/>. Diese Anordnung gilt auch für die Beispielseite; auf schmalen Bildschirmen wird sie platzsparend umgebrochen.
 
 Rechts neben dem Veranstaltungstitel steht ein dezent umrandeter Zugangsblock mit der Überschrift «Zugang zu dieser Seite:», der Kurzadresse und dem lokalen QR-Code `public/images/educafe-ai-tasks-qr.png`. Kurzadresse und QR-Code öffnen die Teilnehmendenadresse in einem neuen Tab. Auf schmalen Bildschirmen steht der Block unter dem Titel.
+
+Am 22. September wurde der Zugangsblock vergrössert: QR-Code und Kurzadresse sind in grossen, mittleren und mobilen Ansichten deutlich besser lesbar. Die zusätzliche Breite auf grossen Bildschirmen wird ausserhalb des bisherigen Textbereichs gewonnen, sodass der Einstiegstext seine bisherige Breite behält.
+
+Direkt nach den drei Sprachbeispielen steht neu eine gut lesbare Vorankündigung zur Seite «Englisch mit KI», die am 9. Oktober live geht. Der Projekttitel «Selbstverantwortliches Lernen mit KI im Englisch» führt in einem neuen Tab zur DLH-Projektvorstellung. Der Platzhalter für den späteren Seitenlink bleibt sichtbar. Hans hat diese vollständig geprüften Anpassungen am 22. September ausdrücklich zur Veröffentlichung freigegeben.
 
 ## Veröffentlichungsablauf
 
@@ -63,16 +68,18 @@ Die erzeugte Datei `dist/client/index.html` liegt nicht im GitHub-Dateibaum. `di
 
 - Git-Repository: `webseite/`
 - Branch: `main`
+- Ausgangscommit vor der Veröffentlichung vom 22. September: `1bd01d8` – `Add self-regulated learning study source`
 - Ausgangscommit vor dem aktuellen Finetuning: `8d7e201` – `Refine website task check and learning guidance`
 - Referenzcommit vor der aktuellen Quellen-Ergänzung: `a551d20` – `Update examples, permissions, and browser checks`
 - Der veröffentlichte Stand enthält das präzisierte französische Praxisbeispiel, Barbara Geyers dokumentierte Nutzungserlaubnis, drei standardmässig geschlossene Praxisbeispiele und den wiederverwendbaren Browsercheck.
-- Ergänzung nach `a551d20`: Die Studie von Li et al. (2026) ist ausschliesslich als zusätzlicher Link unter «Kernmodelle und Forschung» aufgenommen; es kommt kein neuer Präsentationstext hinzu.
+- Ergänzung in `1bd01d8`: Die Studie von Li et al. (2026) ist ausschliesslich als zusätzlicher Link unter «Kernmodelle und Forschung» aufgenommen; es kommt kein neuer Präsentationstext hinzu.
+- Zur Veröffentlichung freigegebene Ergänzung vom 22. September: vergrösserter QR-Code und vergrösserte Kurzadresse sowie die Vorankündigung «Englisch mit KI» nach den drei Sprachbeispielen.
 - Die statische Beispielseite, die lokalen Grafiken einschliesslich QR-Code, Lizenzhinweise und der GitHub-Pages-Workflow bleiben enthalten.
-- Lokale Offline-Ausgabe am 21. September 2026 neu erzeugt.
+- Lokale Offline-Ausgabe am 22. September 2026 neu erzeugt.
 - Offline-Prüfung erfolgreich: **2 HTML-Seiten, 13 interne Links, 15 lokale Assets, 11 Akkordeon-Elemente**.
-- Der Vinext-Build kompiliert alle Stufen. Das abgeschirmte Prerendering kann weiterhin mit `listen EPERM 127.0.0.1` abbrechen; mit der vorgesehenen lokalen Berechtigung wurde der Build am 21. September erfolgreich abgeschlossen.
+- Der Vinext-Build kompiliert alle Stufen. Das abgeschirmte Prerendering kann weiterhin mit `listen EPERM 127.0.0.1` abbrechen; mit der vorgesehenen lokalen Berechtigung wurde der Build am 22. September erfolgreich abgeschlossen.
 - Linter erfolgreich ohne Meldungen abgeschlossen.
-- Playwright und Chromium sind projektlokal installiert und von Git ausgeschlossen. Der feste Befehl `pnpm test:browser` prüft die geschlossenen Praxisbeispiele, das Öffnen und Schliessen sowie Konsolenfehler in Desktop- und Mobilbreite. Dieser Browsercheck wurde am 21. September erfolgreich ausgeführt.
+- Playwright und Chromium sind projektlokal installiert und von Git ausgeschlossen. Der feste Befehl `pnpm test:browser` prüft neu zusätzlich die Grösse von QR-Code und Kurzadresse sowie Vorankündigung und Projektlink. Der Check wurde am 22. September in Desktop-, Zwischen- und Mobilbreite erfolgreich ausgeführt; die Praxisbeispiele blieben geschlossen und es gab keine Konsolenfehler.
 - Beim zusätzlichen Offline-Browsercheck vom 11. September bestanden alle **66** gezielten Inhalts-, Darstellungs-, Navigations-, Link-, QR- und Lizenzprüfungen; es gab keine Konsolenfehler und keine fehlenden lokalen Ressourcen.
 
 Arbeitsablauf:

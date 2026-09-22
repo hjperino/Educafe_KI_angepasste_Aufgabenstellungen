@@ -436,6 +436,22 @@ export default function Home() {
         </div>
         <CoreExampleAccordion />
 
+        <aside className="english-ai-preview" aria-label="Vorankündigung Englisch mit KI">
+          <p>
+            <strong>Vorankündigung:</strong> Am 9. Oktober geht die Seite «Englisch mit KI»
+            live. Dort werden die Resultate des DLH-Innovationsfondsprojekts{' '}
+            <a
+              href="https://dlh.zh.ch/home/innovationsfonds/projektvorstellungen/uebersicht/997-selbstverantwortliches-lernen-mit-ki-im-englisch"
+              target="_blank"
+              rel="noreferrer"
+            >
+              «Selbstverantwortliches Lernen mit KI im Englisch»
+            </a>{' '}
+            publiziert – mit Lehrplänen, Prompts und allem, was dazugehört. Der Link dazu
+            wird dann hier ergänzt: _____
+          </p>
+        </aside>
+
         <div className="subject-ideas">
           <div className="section-heading narrow-heading">
             <p className="eyebrow">Weitere Fächer</p>
