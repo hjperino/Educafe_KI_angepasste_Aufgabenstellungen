@@ -1,6 +1,6 @@
 # Session Notes: Educafé-Hauptseite
 
-**Stand:** 22. September 2026
+**Stand:** 23. September 2026
 **Zweck:** Übergabe des aktuellen lokalen und veröffentlichten Stands der Educafé-Präsentationswebseite.
 
 ## Veröffentlichungsfreigabe
@@ -13,7 +13,8 @@ Die veröffentlichte Webseite ist erreichbar unter:
 
 - Hauptadresse: <https://hjperino.github.io/Educafe_KI_angepasste_Aufgabenstellungen/>
 - Kurzadresse für Teilnehmende: <https://tinyurl.com/Educafe-ai-tasks>
-- Ausgangsstand vor dieser Veröffentlichung: `1bd01d8` – `Add self-regulated learning study source`
+- Ausgangsstand vor den Textanpassungen vom 23. September: `bb25a1b` – `Enlarge access block and add English project preview`
+- Ausgangsstand vor der Veröffentlichung vom 22. September: `1bd01d8` – `Add self-regulated learning study source`
 - Letzter bestätigter Veröffentlichungsstand vor der aktuellen Quellen-Ergänzung: `a551d20` – `Update examples, permissions, and browser checks`
 
 Der Programmcode wird unter MIT veröffentlicht, die eigenen Inhalte unter CC BY 4.0. Abweichende Rechte an Fremdmaterialien sind separat dokumentiert. Barbara Geyer hat die Verwendung ihres Polmodells im Educafé-Beitrag und die Darstellung der Abbildung auf der Materialseite ausdrücklich erlaubt, sofern sie als Quelle genannt wird. Die Grafik bleibt von den Projektlizenzen ausgenommen.
@@ -27,6 +28,10 @@ Im französischen Praxisbeispiel beschreibt die herkömmliche Aufgabenstellung d
 In der Aufgabenwerkstatt stehen der externe KI-Aufgaben-Transformator und der ausführliche Prüf-Prompt als zwei gleich gestaltete weisse Linkblöcke nebeneinander; auf schmalen Bildschirmen werden sie untereinander angeordnet.
 
 Im Einstieg ist «Educafé ·» gleich gross wie «Praxisbeispiele». Das etwas kleinere Datum «24. September 2026» steht in einer eigenen zweiten Zeile. Beide Einstiegstexte sind orange; nur die Überschrift «Praxisbeispiele» wurde in diesem Abschnitt umgefärbt.
+
+Textanpassung vom 23. September: Der zweite Satz des Einstiegsleitsatzes lautet neu: «Die Lernenden prüfen die KI-Ergebnisse, übernehmen, verändern oder verwerfen sie und begründen ihre Entscheidungen.» Diese Fassung ersetzt «Das begründete Urteil bleibt bei den Lernenden.»
+
+Bei Frage 04 des Aufgabenchecks ersetzt «Anspruch an die Lernenden» den bisherigen Titel «Menschliches Urteil und Lernspuren». Der zugehörige Kurztext lautet neu: `KI-Ergebnisse prüfen, übernehmen oder verändern – und die Entscheidung begründen («Lernspuren»)`. Beide Textanpassungen wurden lokal erfolgreich geprüft und von Hans am 23. September ausdrücklich zur Veröffentlichung freigegeben.
 
 Die Kopfzeile beginnt mit «KI-angepasste Aufgaben gestalten». Danach folgen die Navigationspunkte. «Digital Learning Hub Sek II» steht rechts und führt in einem neuen Tab zu <https://dlh.zh.ch/>. Diese Anordnung gilt auch für die Beispielseite; auf schmalen Bildschirmen wird sie platzsparend umgebrochen.
 
@@ -74,12 +79,14 @@ Die erzeugte Datei `dist/client/index.html` liegt nicht im GitHub-Dateibaum. `di
 - Der veröffentlichte Stand enthält das präzisierte französische Praxisbeispiel, Barbara Geyers dokumentierte Nutzungserlaubnis, drei standardmässig geschlossene Praxisbeispiele und den wiederverwendbaren Browsercheck.
 - Ergänzung in `1bd01d8`: Die Studie von Li et al. (2026) ist ausschliesslich als zusätzlicher Link unter «Kernmodelle und Forschung» aufgenommen; es kommt kein neuer Präsentationstext hinzu.
 - Zur Veröffentlichung freigegebene Ergänzung vom 22. September: vergrösserter QR-Code und vergrösserte Kurzadresse sowie die Vorankündigung «Englisch mit KI» nach den drei Sprachbeispielen.
+- Zur Veröffentlichung freigegebene Textanpassung vom 23. September: Der Einstiegsleitsatz nennt nun konkret das Prüfen, Übernehmen, Verändern oder Verwerfen von KI-Ergebnissen und das Begründen der Entscheidungen.
+- Frage 04 trägt neu den Titel «Anspruch an die Lernenden» und nennt als Anforderung das Prüfen, Übernehmen oder Verändern von KI-Ergebnissen sowie die Begründung der Entscheidung als Lernspur.
 - Die statische Beispielseite, die lokalen Grafiken einschliesslich QR-Code, Lizenzhinweise und der GitHub-Pages-Workflow bleiben enthalten.
-- Lokale Offline-Ausgabe am 22. September 2026 neu erzeugt.
+- Lokale Offline-Ausgabe am 23. September 2026 neu erzeugt.
 - Offline-Prüfung erfolgreich: **2 HTML-Seiten, 13 interne Links, 15 lokale Assets, 11 Akkordeon-Elemente**.
-- Der Vinext-Build kompiliert alle Stufen. Das abgeschirmte Prerendering kann weiterhin mit `listen EPERM 127.0.0.1` abbrechen; mit der vorgesehenen lokalen Berechtigung wurde der Build am 22. September erfolgreich abgeschlossen.
+- Der Vinext-Build kompiliert alle Stufen. Das abgeschirmte Prerendering kann weiterhin mit `listen EPERM 127.0.0.1` abbrechen; mit der vorgesehenen lokalen Berechtigung wurde der Build am 23. September erfolgreich abgeschlossen.
 - Linter erfolgreich ohne Meldungen abgeschlossen.
-- Playwright und Chromium sind projektlokal installiert und von Git ausgeschlossen. Der feste Befehl `pnpm test:browser` prüft neu zusätzlich die Grösse von QR-Code und Kurzadresse sowie Vorankündigung und Projektlink. Der Check wurde am 22. September in Desktop-, Zwischen- und Mobilbreite erfolgreich ausgeführt; die Praxisbeispiele blieben geschlossen und es gab keine Konsolenfehler.
+- Playwright und Chromium sind projektlokal installiert und von Git ausgeschlossen. Der feste Befehl `pnpm test:browser` prüft neu zusätzlich die Grösse von QR-Code und Kurzadresse sowie Vorankündigung und Projektlink. Der Check wurde am 23. September in Desktop-, Zwischen- und Mobilbreite erfolgreich ausgeführt; die Praxisbeispiele blieben geschlossen und es gab keine Konsolenfehler.
 - Beim zusätzlichen Offline-Browsercheck vom 11. September bestanden alle **66** gezielten Inhalts-, Darstellungs-, Navigations-, Link-, QR- und Lizenzprüfungen; es gab keine Konsolenfehler und keine fehlenden lokalen Ressourcen.
 
 Arbeitsablauf:

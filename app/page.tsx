@@ -61,8 +61,9 @@ const taskCheckQuestions = [
     },
   },
   {
-    title: 'Menschliches Urteil und Lernspuren',
-    question: 'Welches menschliche Urteil muss sichtbar werden – und in welchen Lernspuren?',
+    title: 'Anspruch an die Lernenden',
+    question:
+      'KI-Ergebnisse prüfen, übernehmen oder verändern – und die Entscheidung begründen («Lernspuren»)',
     graphic: null,
   },
   {
@@ -125,7 +126,8 @@ export default function Home() {
           </div>
           <p className="hero-note">
             Die KI darf Material erzeugen, Vorschläge machen und simulieren.
-            Das begründete Urteil bleibt bei den Lernenden.
+            Die Lernenden prüfen die KI-Ergebnisse, übernehmen, verändern oder verwerfen sie
+            und begründen ihre Entscheidungen.
           </p>
         </div>
         <aside className="hero-access" aria-labelledby="hero-access-title">
