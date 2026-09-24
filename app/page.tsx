@@ -95,14 +95,19 @@ export default function Home() {
           <a href="#beispiele">Beispiele</a>
           <a href="#quellen">Quellen</a>
         </nav>
-        <a
-          className="brand-org-link"
-          href="https://dlh.zh.ch/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Digital Learning Hub Sek II
-        </a>
+        <div className="brand-org">
+          <a
+            className="brand-org-link"
+            href="https://dlh.zh.ch/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Digital Learning Hub Sek II
+          </a>
+          <a className="brand-contact-link" href="mailto:hansjuerg.perino@dlh.zh.ch">
+            hansjuerg.perino@dlh.zh.ch
+          </a>
+        </div>
       </header>
 
       <section className="hero">

@@ -46,6 +46,28 @@ def check_examples(browser, viewport):
         examples.nth(index).evaluate("element => element.open") for index in range(3)
     ] == [False, False, False], "Nicht alle Kernbeispiele laden geschlossen."
 
+    organization_link = page.locator(".brand-org-link")
+    contact_link = page.locator(".brand-contact-link")
+    assert contact_link.count() == 1, "Der Kontaktlink in der Kopfzeile fehlt."
+    assert contact_link.get_attribute("href") == "mailto:hansjuerg.perino@dlh.zh.ch"
+    assert contact_link.text_content() == "hansjuerg.perino@dlh.zh.ch"
+    organization_font_size = float(
+        organization_link.evaluate(
+            "element => getComputedStyle(element).fontSize.replace('px', '')"
+        )
+    )
+    contact_font_size = float(
+        contact_link.evaluate(
+            "element => getComputedStyle(element).fontSize.replace('px', '')"
+        )
+    )
+    assert contact_font_size < organization_font_size, (
+        "Der Kontaktlink ist nicht kleiner als der Organisationslink."
+    )
+    assert contact_link.bounding_box()["y"] > organization_link.bounding_box()["y"], (
+        "Der Kontaktlink steht nicht unter dem Organisationslink."
+    )
+
     gatsby_links = examples.nth(2).locator(".example-tools a")
     assert gatsby_links.count() == 2, "Die beiden Gatsby-Beispielchats fehlen."
     assert [gatsby_links.nth(index).get_attribute("href") for index in range(2)] == (
