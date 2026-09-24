@@ -751,9 +751,9 @@ footer nav a:focus-visible {
   background: white;
   box-shadow: 0 0.55rem 1.6rem rgb(29 52 55 / 7%);
 }
-.prompt-resources h3 { max-width: 900px; margin-bottom: 0.9rem; font-size: clamp(1.25rem, 1.8vw, 1.55rem); line-height: 1.35; }
+.prompt-resources h3 { max-width: 900px; margin-bottom: 0.9rem; color: var(--orange); font-size: clamp(1.25rem, 1.8vw, 1.55rem); line-height: 1.35; }
 .prompt-resource-featured { display: flex; flex-wrap: wrap; gap: 0.3rem 0.55rem; align-items: baseline; margin-bottom: 1.35rem; }
-.prompt-resources-intro { margin-bottom: 0.7rem; font-weight: 700; }
+.prompt-resources-intro { margin-bottom: 0.7rem; color: var(--orange); font-weight: 700; }
 .prompt-resource-list { display: grid; gap: 0.55rem; margin: 0; padding: 0; list-style: none; }
 .prompt-resource-list li { display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; align-items: baseline; }
 .prompt-resources a { color: var(--petrol); font-weight: 700; text-underline-offset: 0.2rem; }

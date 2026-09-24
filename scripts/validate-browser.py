@@ -71,6 +71,19 @@ def check_examples(browser, viewport):
         PROMPT_RESOURCE_URLS
     ), "Die Prompt-Ressourcen verwenden nicht die vorgesehenen Links."
     assert "E-Mail-Anmeldung erforderlich" in prompt_resources.text_content()
+    prompt_heading_color = prompt_resources.locator("h3").evaluate(
+        "element => getComputedStyle(element).color"
+    )
+    prompt_intro_color = prompt_resources.locator(".prompt-resources-intro").evaluate(
+        "element => getComputedStyle(element).color"
+    )
+    prompt_link_color = prompt_links.first.evaluate(
+        "element => getComputedStyle(element).color"
+    )
+    assert prompt_heading_color == prompt_intro_color
+    assert prompt_heading_color != prompt_link_color, (
+        "Titel und Links im Prompt-Ressourcenblock sind farblich nicht unterscheidbar."
+    )
 
     preview = page.locator(".english-ai-preview")
     assert preview.count() == 1, "Die Vorankündigung zu «Englisch mit KI» fehlt."
