@@ -12,6 +12,17 @@ PAGE_URL = (PROJECT_ROOT / "dist" / "client" / "index.html").as_uri()
 EXAMPLE_SELECTOR = (
     "#beispiele .content-accordion:not(.compact-accordion) > details.accordion-item"
 )
+GATSBY_CHAT_URLS = [
+    "https://chatgpt.com/share/6ab4de99-920c-83eb-abb6-661556896915",
+    "https://chatgpt.com/share/6ab4dee4-dedc-83eb-9349-829280138517",
+]
+PROMPT_RESOURCE_URLS = [
+    "https://promptmanagerin42.vercel.app/",
+    "https://www.manuelflick.de/chatgpt-guide",
+    "https://www.aiforeducation.io/prompt-library",
+    "https://www.aiforeducation.io/blog/bt106g4jzvoc1hdz5ozqzp8g7jlxc0-mtecx",
+    "https://www.moreusefulthings.com/prompts",
+]
 
 
 def check_examples(browser, viewport):
@@ -34,6 +45,32 @@ def check_examples(browser, viewport):
     assert [
         examples.nth(index).evaluate("element => element.open") for index in range(3)
     ] == [False, False, False], "Nicht alle Kernbeispiele laden geschlossen."
+
+    gatsby_links = examples.nth(2).locator(".example-tools a")
+    assert gatsby_links.count() == 2, "Die beiden Gatsby-Beispielchats fehlen."
+    assert [gatsby_links.nth(index).get_attribute("href") for index in range(2)] == (
+        GATSBY_CHAT_URLS
+    ), "Die Gatsby-Beispielchats verwenden nicht die öffentlichen Freigabelinks."
+
+    gpt_access_note = examples.first.locator(".example-tool-row .access-note")
+    assert gpt_access_note.count() == 1
+    assert gpt_access_note.text_content() == "ChatGPT-Konto erforderlich"
+
+    source_access_notes = page.locator("#quellen .source-links .access-note")
+    assert source_access_notes.count() == 2, "Die Zugangshinweise bei den Quellen fehlen."
+    assert source_access_notes.all_text_contents() == [
+        "Abstract öffentlich; Volltext gegebenenfalls kostenpflichtig",
+        "Kostenlose Anmeldung erforderlich",
+    ]
+
+    prompt_resources = page.locator(".prompt-resources")
+    assert prompt_resources.count() == 1, "Der Block mit den Prompt-Ressourcen fehlt."
+    prompt_links = prompt_resources.locator("a")
+    assert prompt_links.count() == 5, "Es werden nicht alle fünf Prompt-Ressourcen angezeigt."
+    assert [prompt_links.nth(index).get_attribute("href") for index in range(5)] == (
+        PROMPT_RESOURCE_URLS
+    ), "Die Prompt-Ressourcen verwenden nicht die vorgesehenen Links."
+    assert "E-Mail-Anmeldung erforderlich" in prompt_resources.text_content()
 
     preview = page.locator(".english-ai-preview")
     assert preview.count() == 1, "Die Vorankündigung zu «Englisch mit KI» fehlt."
@@ -79,7 +116,8 @@ with sync_playwright() as playwright:
 
 print(
     "Browsercheck bestanden: QR-Code und Kurzadresse vergrössert; "
-    "Vorankündigung und Projektlink vorhanden; drei Praxisbeispiele geschlossen; "
+    "Prompt-Ressourcen, Vorankündigung und Projektlink vorhanden; "
+    "drei Praxisbeispiele geschlossen; "
     "Öffnen und Schliessen funktionieren in Desktop-, Zwischen- und Mobilbreite; "
     "keine Konsolenfehler."
 )

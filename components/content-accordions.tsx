@@ -12,10 +12,12 @@ const coreExamples = [
       {
         label: 'GPT-Bot',
         href: 'https://chatgpt.com/g/g-6867942b8e5c8191bab5ea3857148b1a-cefr-writing-feedback-buddy-swiss-sek-i-and-ii',
+        accessNote: 'ChatGPT-Konto erforderlich',
       },
       {
         label: 'Fobizz-Assistent',
         href: 'https://app.fobizz.com/ai/chats/public_assistants/c16e38ef-1743-4212-b6a8-accb632f5347?token=1f2f69dab5dc55e728bcd5f59c19ffd3',
+        accessNote: null,
       },
     ],
     toolsLabel: 'Benutze z. B.',
@@ -50,11 +52,13 @@ const coreExamples = [
     tools: [
       {
         label: 'Beispiel Chat 1',
-        href: 'https://chatgpt.com/c/fc15bec7-8234-4e06-a87c-85572bfd61b9',
+        href: 'https://chatgpt.com/share/6ab4de99-920c-83eb-abb6-661556896915',
+        accessNote: null,
       },
       {
         label: 'Beispiel Chat 2',
-        href: 'https://chatgpt.com/c/2f6758e7-fcdc-48e0-bee6-750fed50775a',
+        href: 'https://chatgpt.com/share/6ab4dee4-dedc-83eb-9349-829280138517',
+        accessNote: null,
       },
     ],
     toolsLabel: null,
@@ -115,10 +119,10 @@ const sources = [
       ['Backward Design · MIT Teaching + Learning Lab', 'https://tll.mit.edu/teaching-resources/course-design/backward-design/'],
       ['Das Polmodell · Barbara Geyer (Substack)', 'https://barbarageyer.substack.com/p/das-polmodell'],
       ['Polmodell von Barbara Geyer · ergänzender LinkedIn-Beitrag', 'https://de.linkedin.com/posts/barbara-geyer_welche-aufgabenstellungen-funktionieren-in-activity-7500445923391574016-nTHQ'],
-      ['ICAP Framework von Chi und Wylie', 'https://doi.org/10.1080/00461520.2014.965823'],
+      ['ICAP Framework von Chi und Wylie', 'https://doi.org/10.1080/00461520.2014.965823', 'Abstract öffentlich; Volltext gegebenenfalls kostenpflichtig'],
       ['AI Assessment Scale 2.1', 'https://aiassessmentscale.com/'],
       ['AIAS Implementation Guide', 'https://aiassessmentscale.com/implementation-guide/'],
-      ['AI Fluency for Educators · Anthropic', 'https://anthropic.skilljar.com/ai-fluency-for-educators'],
+      ['AI Fluency for Educators · Anthropic', 'https://anthropic.skilljar.com/ai-fluency-for-educators', 'Kostenlose Anmeldung erforderlich'],
       ['AI Literacy Framework', 'https://ailiteracyframework.org/'],
       ['Die wichtige Rolle der Selbstregulation beim Lernen mit KI (Studientext englisch)', 'https://www.mdpi.com/2079-3200/14/9/208'],
     ],
@@ -150,12 +154,13 @@ const sources = [
 function LinkList({ links }: { links: string[][] }) {
   return (
     <ul className="source-links">
-      {links.map(([label, href]) => (
+      {links.map(([label, href, accessNote]) => (
         <li key={href}>
           <a href={href} target="_blank" rel="noreferrer">
             {label}
             <ExternalLink aria-hidden="true" size={16} />
           </a>
+          {accessNote ? <small className="access-note">{accessNote}</small> : null}
         </li>
       ))}
     </ul>
@@ -186,10 +191,13 @@ export function CoreExampleAccordion() {
                   <div className="example-tools">
                     {example.toolsLabel ? <small>{example.toolsLabel}</small> : null}
                     {example.tools.map((tool) => (
-                      <a href={tool.href} target="_blank" rel="noreferrer" key={tool.href}>
-                        {tool.label}
-                        <ExternalLink aria-hidden="true" size={14} />
-                      </a>
+                      <div className="example-tool-row" key={tool.href}>
+                        <a href={tool.href} target="_blank" rel="noreferrer">
+                          {tool.label}
+                          <ExternalLink aria-hidden="true" size={14} />
+                        </a>
+                        {tool.accessNote ? <small className="access-note">{tool.accessNote}</small> : null}
+                      </div>
                     ))}
                   </div>
                 ) : null}

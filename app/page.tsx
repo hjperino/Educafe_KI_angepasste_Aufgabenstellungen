@@ -438,6 +438,69 @@ export default function Home() {
         </div>
         <CoreExampleAccordion />
 
+        <aside className="prompt-resources" aria-labelledby="prompt-resources-title">
+          <h3 id="prompt-resources-title">
+            Der DLH hat sofort nutzbare Prompting-Tipps wie auch eine Prompt-Bibliothek
+            zusammengestellt:
+          </h3>
+          <p className="prompt-resource-featured">
+            <a
+              href="https://promptmanagerin42.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Prompt-Bibliothek des DLH
+            </a>
+            <small>(im Aufbau, wird laufend erweitert und angepasst)</small>
+          </p>
+          <p className="prompt-resources-intro">
+            Weitere Prompting-Bibliotheken oder Anleitungen für Lehrpersonen befinden sich
+            hier:
+          </p>
+          <ul className="prompt-resource-list">
+            <li>
+              <a
+                href="https://www.manuelflick.de/chatgpt-guide"
+                target="_blank"
+                rel="noreferrer"
+              >
+                ChatGPT-Guide für Lehrpersonen
+              </a>
+              <small>(deutsch, M. Flick; E-Mail-Anmeldung erforderlich)</small>
+            </li>
+            <li>
+              <a
+                href="https://www.aiforeducation.io/prompt-library"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Prompt-Library for educators
+              </a>
+              <small>(englisch)</small>
+            </li>
+            <li>
+              <a
+                href="https://www.aiforeducation.io/blog/bt106g4jzvoc1hdz5ozqzp8g7jlxc0-mtecx"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Prompt-Ideen für Lehrpersonen, um Zeit zu sparen
+              </a>
+              <small>(englisch)</small>
+            </li>
+            <li>
+              <a
+                href="https://www.moreusefulthings.com/prompts"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Differenzierte Prompt-Bibliothek für den Bildungsbereich
+              </a>
+              <small>(englisch)</small>
+            </li>
+          </ul>
+        </aside>
+
         <aside className="english-ai-preview" aria-label="Vorankündigung Englisch mit KI">
           <p>
             <strong>Vorankündigung:</strong> Am 9. Oktober geht die Seite «Englisch mit KI»

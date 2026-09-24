@@ -710,6 +710,8 @@ footer nav a:focus-visible {
   line-height: 1.35;
 }
 .example-tools small { color: var(--muted); font-size: 0.9rem; }
+.example-tool-row { display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; align-items: baseline; }
+.example-tools .access-note { font-size: 0.78rem; font-weight: 500; }
 .example-tools a {
   display: inline-flex;
   gap: 0.35rem;
@@ -740,6 +742,24 @@ footer nav a:focus-visible {
 .example-resource a:hover,
 .example-resource a:focus-visible { color: var(--orange); }
 .example-resource svg { flex: 0 0 auto; }
+.prompt-resources {
+  max-width: 1040px;
+  margin-top: 2rem;
+  padding: 1.4rem;
+  border-top: 4px solid var(--petrol);
+  border-radius: 0 0 var(--radius) var(--radius);
+  background: white;
+  box-shadow: 0 0.55rem 1.6rem rgb(29 52 55 / 7%);
+}
+.prompt-resources h3 { max-width: 900px; margin-bottom: 0.9rem; font-size: clamp(1.25rem, 1.8vw, 1.55rem); line-height: 1.35; }
+.prompt-resource-featured { display: flex; flex-wrap: wrap; gap: 0.3rem 0.55rem; align-items: baseline; margin-bottom: 1.35rem; }
+.prompt-resources-intro { margin-bottom: 0.7rem; font-weight: 700; }
+.prompt-resource-list { display: grid; gap: 0.55rem; margin: 0; padding: 0; list-style: none; }
+.prompt-resource-list li { display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; align-items: baseline; }
+.prompt-resources a { color: var(--petrol); font-weight: 700; text-underline-offset: 0.2rem; }
+.prompt-resources a:hover,
+.prompt-resources a:focus-visible { color: var(--orange); }
+.prompt-resources small { color: var(--muted); font-size: 0.85rem; line-height: 1.35; }
 .english-ai-preview {
   max-width: 1040px;
   margin-top: 2rem;
@@ -803,9 +823,11 @@ footer nav a:focus-visible {
 .sources-section { background: var(--paper); }
 .source-accordion { max-width: 900px; }
 .source-links { display: grid; gap: 0.45rem; margin: 0; padding: 0; list-style: none; }
+.source-links li { display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; align-items: baseline; }
 .source-links a { display: inline-flex; gap: 0.45rem; align-items: center; color: var(--petrol); font-weight: 700; text-underline-offset: 0.28rem; }
 .source-links a:hover,
 .source-links a:focus-visible { color: var(--orange); }
+.source-links .access-note { color: var(--muted); font-size: 0.8rem; line-height: 1.35; }
 
 .closing-section { display: grid; place-items: center; padding: clamp(5rem, 11vw, 10rem) 1.25rem; background: var(--petrol); color: white; text-align: center; }
 .closing-section svg { margin-bottom: 2.2rem; color: var(--orange-soft); }
